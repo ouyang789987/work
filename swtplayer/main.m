@@ -1,17 +1,18 @@
 //
 //  main.m
-//  SampleOne
+//  stroyboarddemo
 //
-//  Created by zengfanping on 6/21/13.
-//  Copyright (c) 2013 zengfanping. All rights reserved.
+//  Created by marcus on 12-1-7.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "CBAppDelegate.h"
+
+#import "swtplayerAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CBAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([NationalLibraryConteollerAppDelegate class]));
     }
 }
