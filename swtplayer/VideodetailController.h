@@ -12,11 +12,11 @@
 #import "CommonFn.h"
 
 @interface VideodetailController : CommonUIViewController
-@property (weak, nonatomic)  NSString * videoid ; 
-@property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
-@property (weak, nonatomic) IBOutlet UILabel *videotitle;
+@property (strong, nonatomic)  NSString * videoid ; 
+@property (strong, nonatomic) IBOutlet UIImageView *thumbnail;
+@property (strong, nonatomic) IBOutlet UILabel *videotitle;
 
-@property (weak, nonatomic) IBOutlet UILabel *cattitle;
+@property (strong, nonatomic) IBOutlet UILabel *cattitle;
 
 - (IBAction)GoToPlayVideo:(id)sender;
 

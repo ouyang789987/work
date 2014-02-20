@@ -5,7 +5,7 @@
 //  Created by ouyang qungang on 20/02/2014.
 //  Copyright (c) 2014 欧阳群刚. All rights reserved.
 //
-
+/*
 #import "PlayVideoController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
@@ -350,3 +350,5 @@
  
 
 @end
+
+*/

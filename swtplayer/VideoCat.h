@@ -10,18 +10,18 @@
 
 @interface VideoCat : NSObject
 
-@property (weak ,nonatomic) NSString * _id ;
-@property (weak ,nonatomic) NSString * title;
-@property (weak ,nonatomic) NSString * organizationid ;
-@property (weak ,nonatomic) NSString * thumbnail ;
-@property (weak ,nonatomic) NSString * detail ;
-@property (weak ,nonatomic) NSString * level ;
-@property (weak ,nonatomic) NSString * userid ;
+@property (strong ,nonatomic) NSString * _id ;
+@property (strong ,nonatomic) NSString * title;
+@property (strong ,nonatomic) NSString * organizationid ;
+@property (strong ,nonatomic) NSString * thumbnail ;
+@property (strong ,nonatomic) NSString * detail ;
+@property (strong ,nonatomic) NSString * level ;
+@property (strong ,nonatomic) NSString * userid ;
 @property NSInteger * sortorder ;
-@property (weak ,nonatomic) NSString * status ;
-@property (weak ,nonatomic) NSString * datecreated  ;
-@property (weak ,nonatomic) NSString * datemodified ;
+@property (strong ,nonatomic) NSString * status ;
+@property (strong ,nonatomic) NSString * datecreated  ;
+@property (strong ,nonatomic) NSString * datemodified ;
 
-@property (weak ,nonatomic) NSDictionary * subcat ;
+@property (strong ,nonatomic) NSDictionary * subcat ;
 
 @end

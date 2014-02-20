@@ -16,18 +16,18 @@
 
 @interface AreaViewController : CommonUIViewController<UITableViewDelegate, UITableViewDataSource> 
 
-@property (weak, nonatomic) IBOutlet UITableView *videotable;
+@property (strong, nonatomic) IBOutlet UITableView *videotable;
 
 @property BOOL nibsRegistered ;
 
-@property (weak, nonatomic)  NSString * areastr ; 
+@property (strong, nonatomic)  NSString * areastr ;
 
 -(IBAction)onClickButton:(id)sender;
 
 @property (strong, nonatomic) NSMutableArray * videolist;  
 @property (strong, nonatomic) NSMutableArray * sectionids;
 @property (strong, nonatomic) NSMutableDictionary * sectionDict;
-@property (weak, nonatomic) VideodetailController * segueview;
+@property (strong, nonatomic) VideodetailController * segueview;
 @property (strong, nonatomic) NSString * selectvideoid;  
 - (UIImage *)scaleToSize:(UIImage *)img resize:(CGSize)newsize; 
     

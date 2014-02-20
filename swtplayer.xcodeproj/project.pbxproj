@@ -18,6 +18,7 @@
 		4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */; };
 		4E98B02318B762FB00C54EE7 /* libReachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01C18B762FB00C54EE7 /* libReachability.a */; };
 		4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01D18B762FB00C54EE7 /* libSBJSON.a */; };
+		4EAB8AFB18B655AF00148DC7 /* libCyberPlayerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */; };
 		4EFF548518B74F920091BA84 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548418B74F920091BA84 /* OpenAL.framework */; };
 		4EFF548718B74F9F0091BA84 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548618B74F9F0091BA84 /* OpenGLES.framework */; };
 		4EFF548918B74FB50091BA84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548818B74FB50091BA84 /* QuartzCore.framework */; };
@@ -166,11 +167,11 @@
 		4E98B01618B762FB00C54EE7 /* CyberPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyberPlayerController.h; sourceTree = "<group>"; };
 		4E98B01718B762FB00C54EE7 /* libASIHTTP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libASIHTTP.a; sourceTree = "<group>"; };
 		4E98B01818B762FB00C54EE7 /* libBase64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBase64.a; sourceTree = "<group>"; };
-		4E98B01918B762FB00C54EE7 /* libCyberPlayerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCyberPlayerController.a; sourceTree = "<group>"; };
 		4E98B01A18B762FB00C54EE7 /* libCyberPlayerUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCyberPlayerUtils.a; sourceTree = "<group>"; };
 		4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGzipCompressor.a; sourceTree = "<group>"; };
 		4E98B01C18B762FB00C54EE7 /* libReachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libReachability.a; sourceTree = "<group>"; };
 		4E98B01D18B762FB00C54EE7 /* libSBJSON.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSBJSON.a; sourceTree = "<group>"; };
+		4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCyberPlayerController.a; sourceTree = "<group>"; };
 		4EFF548418B74F920091BA84 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		4EFF548618B74F9F0091BA84 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4EFF548818B74FB50091BA84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -381,6 +382,7 @@
 				4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */,
 				4E98B02318B762FB00C54EE7 /* libReachability.a in Frameworks */,
 				4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */,
+				4EAB8AFB18B655AF00148DC7 /* libCyberPlayerController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,10 +501,10 @@
 		4E98B01518B762FB00C54EE7 /* vlib */ = {
 			isa = PBXGroup;
 			children = (
+				4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */,
 				4E98B01618B762FB00C54EE7 /* CyberPlayerController.h */,
 				4E98B01718B762FB00C54EE7 /* libASIHTTP.a */,
 				4E98B01818B762FB00C54EE7 /* libBase64.a */,
-				4E98B01918B762FB00C54EE7 /* libCyberPlayerController.a */,
 				4E98B01A18B762FB00C54EE7 /* libCyberPlayerUtils.a */,
 				4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */,
 				4E98B01C18B762FB00C54EE7 /* libReachability.a */,
@@ -932,7 +934,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/swtplayer\"",
@@ -945,6 +947,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "移动社文";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -963,7 +966,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/swtplayer\"",
@@ -976,6 +979,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "移动社文";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

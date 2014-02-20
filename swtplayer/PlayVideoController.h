@@ -11,14 +11,14 @@
 
 
 @interface PlayVideoController : CommonUIViewController
-@property (weak, nonatomic)  NSString * videoid ; 
+@property (strong, nonatomic)  NSString * videoid ; 
 - (IBAction)closeView:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *closebutton;
+@property (strong, nonatomic) IBOutlet UIButton *closebutton;
 
-@property (weak, nonatomic) IBOutlet UIView *topcontrolbar;
+@property (strong, nonatomic) IBOutlet UIView *topcontrolbar;
 
-@property (weak, nonatomic) IBOutlet UIView *controlbox;
+@property (strong, nonatomic) IBOutlet UIView *controlbox;
 
 
 @property (retain, nonatomic) IBOutlet UIView *cbPlayerView;

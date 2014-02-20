@@ -11,9 +11,9 @@
 
 @interface MapViewController : CommonUIViewController
 
-@property (weak, nonatomic) IBOutlet UIWebView *webview;
-@property (weak, nonatomic)  NSString * areadata ; 
-@property (weak, nonatomic) AreaViewController * segueview;
+@property (strong, nonatomic) IBOutlet UIWebView *webview;
+@property (strong, nonatomic)  NSString * areadata ;
+@property (strong, nonatomic) AreaViewController * segueview;
 - (IBAction)GoBackBtClick:(id)sender;
 
 - (void) ShowAreaListClick;

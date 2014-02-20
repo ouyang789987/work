@@ -10,6 +10,6 @@
 
 @interface CommonUIViewController : UIViewController
 
- @property (weak, nonatomic)  NSMutableDictionary *  userEntity;
+ @property (strong, nonatomic)  NSMutableDictionary *  userEntity;
 
 @end

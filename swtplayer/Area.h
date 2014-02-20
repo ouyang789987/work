@@ -10,12 +10,12 @@
 
 @interface Area : NSObject
 
-@property (weak ,nonatomic) NSString * _id ;
-@property (weak ,nonatomic) NSString * title;
-@property (weak ,nonatomic) NSString * parentareatitle ;
-@property (weak ,nonatomic) NSString * parentareaid ;
+@property (strong ,nonatomic) NSString * _id ;
+@property (strong ,nonatomic) NSString * title;
+@property (strong ,nonatomic) NSString * parentareatitle ;
+@property (strong ,nonatomic) NSString * parentareaid ;
 @property  NSInteger * sort ;
-@property (weak ,nonatomic) NSString * status ;
+@property (strong ,nonatomic) NSString * status ;
 
 
 -(int)compareTo:(id)another;
