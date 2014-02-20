@@ -11,14 +11,7 @@
 @implementation LiveViewController
 @synthesize videotable;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -42,12 +35,23 @@
 - (void)viewDidLoad
 {
     
-    NSArray *array = [[NSArray alloc] initWithObjects:@"美国", @"菲律宾",  
-                      @"wommmm", @"中国", @"泰国", @"越南", @"老挝",  
-                      @"日本" , nil];   
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    
+    for(NSString * vid in [CommonFn CatList])
+    {
+        NSDictionary * vcat=[[CommonFn CatList] objectForKey:vid];
+        NSRange foundObj=[[vcat objectForKey:@"title"] rangeOfString:@"直播" options:NSCaseInsensitiveSearch]; 
+        if(foundObj.length>0)
+        {
+            [array addObjectsFromArray:[[CommonFn CatVideoList]objectForKey:vid] ];
+        }
+    }
+    
     self.videolist = array;   
     self.videotable.delegate=self;
-    self.videotable.dataSource=self;    
+    self.videotable.dataSource=self;   
+    NSLog(@"live view init");
+    
 }
 
 
@@ -64,5 +68,9 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+ 
+
+
 
 @end

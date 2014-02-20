@@ -10,8 +10,13 @@
 
 @interface LoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *emailtxt;
+@property (weak, nonatomic) IBOutlet UITextField *passwordtxt;
+@property  (weak, nonatomic) NSDictionary * actiontype;
+@property (weak, nonatomic) IBOutlet UILabel *errormsg;
+
 -(IBAction)onClickButton:(id)sender;
 
 - (IBAction)onRegisterBtClick:(id)sender;
-
+-(void)LoginUser;
 @end

@@ -10,6 +10,6 @@
 #import "AreaViewController.h"
 
 @interface AreaListViewController : AreaViewController
-@property (weak, nonatomic) IBOutlet UITableView *videotable;
+//@property (weak, nonatomic) IBOutlet UITableView *videotable;
 
 @end

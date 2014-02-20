@@ -7,21 +7,25 @@
 //
 
 #import "AreaViewController.h"
-#import "UIImageView+WebCache.h"
-#import "UIImage+UIImageExtras.h"
-#import "CustomCell.h"
+
 
 @implementation AreaViewController
 
 @synthesize videotable;
 @synthesize areastr;
 @synthesize videolist = _list; 
+@synthesize nibsRegistered;
+@synthesize sectionids;
+@synthesize sectionDict;
+@synthesize segueview;
+@synthesize selectvideoid;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+         nibsRegistered = NO;
     }
     return self;
 }
@@ -55,10 +59,34 @@
     //areastr=[areastr stringByAppendingFormat:@"ouyang"];
     [[self navigationItem] setTitle:areastr]; 
     
-    NSArray *array = [[NSArray alloc] initWithObjects:@"美国", @"菲律宾",  
-                      @"黄岩岛", @"中国", @"泰国", @"越南", @"老挝",  
-                      @"日本" , nil];   
-    self.videolist = array;   
+    //NSArray *array = [[NSArray alloc] initWithObjects:@"美国", @"菲律宾",@"黄岩岛", @"中国", @"泰国", @"越南", @"老挝",@"日本" , nil];
+    
+    NSString * curareaid=@"";
+    
+    for(NSString * areaid in [CommonFn AreaList])
+    {
+        NSDictionary * ezine=[[CommonFn AreaList] objectForKey:areaid];
+        if([[ezine objectForKey:@"title"] isEqualToString:areastr])
+        {
+            curareaid=[ezine objectForKey:@"id"];
+        }
+    }
+    
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    
+    for(NSString * vid in [CommonFn AllvList])
+    {
+        NSDictionary * vitem=[[CommonFn AllvList] objectForKey:vid];
+        if([[vitem objectForKey:@"videoarea"] isEqualToString:curareaid])
+        {
+            [array addObject:vitem];
+        }
+    }
+    
+    
+    
+    self.videolist = array;
+    self.sectionDict=[CommonFn CatVideoList];
     videotable.delegate=self;
     videotable.dataSource=self;    
     //videotable.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -122,7 +150,7 @@
     
     //自定义tablecell
     static NSString * CustomCellIdentifier = @"MyCustomCellIdentifier";
-    static BOOL nibsRegistered = NO;
+    
     if (!nibsRegistered) {
         UINib *nib = [UINib nibWithNibName:@"CustomCell" bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:CustomCellIdentifier];
@@ -130,29 +158,75 @@
     }
     
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
-        
+    
+    if (cell == nil) {   
+        cell = [[CustomCell alloc]   
+                initWithStyle:UITableViewCellStyleSubtitle   
+                reuseIdentifier:CustomCellIdentifier] ;   
+    }   
+    
+    NSDictionary * temvideo;
+    
+    NSUInteger section = [indexPath section];
+   
     NSUInteger row = [indexPath row]; 
-    cell.textLabel.text = [self.videolist objectAtIndex:row];   
-    cell.detailTextLabel.text=[self.videolist objectAtIndex:row];
+    if (self.sectionids==NULL) {
+       temvideo =[self.videolist objectAtIndex:row];
+    }
+    else
+    {
+       temvideo = [[self.sectionDict objectForKey:[self.sectionids objectAtIndex:section]] objectAtIndex:row];
+        
+    }
+    
+    cell.textLabel.text = [temvideo objectForKey:@"title"];   
+    cell.detailTextLabel.text=[temvideo objectForKey:@"catname"];
     [cell.detailTextLabel setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];
     //UIImage *image = [UIImage imageNamed:@"37x-Checkmark"];   
     //cell.imageView.image = image;     
     //cell.imageView.contentMode = UIViewContentModeScaleAspectFill;    
+    NSString * thumbnail=[[CommonFn SiteUrl] stringByAppendingString:[temvideo objectForKey:@"thumbnail"]];
     
-    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://ty.tvsht.com/uploadfile/20131212174612862.jpg"]
-                  placeholderImage:[UIImage imageNamed:@"37x-Checkmark"] ];
-   
+    [cell.imageView setImageWithURL:[NSURL URLWithString:thumbnail]
+                  placeholderImage:[UIImage imageNamed:@"nopic"] ];
+  
+    
+    UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onVideoClickImage:)]; 
+    singleTap.numberOfTapsRequired=1;
+    singleTap.numberOfTouchesRequired=1;
+    [cell.imageView addGestureRecognizer:singleTap];
+    [cell.imageView setUserInteractionEnabled:YES];
+    
+    //[[singleTap view]setTag:[temvideo objectForKey:@"id"]];
     
     //UIImage *highLighedImage = [UIImage imageNamed:@"37x-Checkmark"];   
     //cell.imageView.highlightedImage = highLighedImage;
+    //NSLog(@"row %d ,%@",[indexPath row],[self.videolist objectAtIndex:row]);
+    
     return cell;
     
 }  
 
+
+
+
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section 
 {
+    NSInteger num= 0;
+    if(self.sectionids==NULL)
+    {
+       num=[self.videolist count];
+     }
+    else
+    {
+       num=[[self.sectionDict objectForKey:[self.sectionids objectAtIndex:section]] count];        
+    }
     
-    return [self.videolist count];
+    if(num>10)
+    {
+        num=10;
+    }
+    return num;
 }
 
 
@@ -162,6 +236,11 @@
 }  
 
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 30;
+    
+}
 
 - (void)viewDidUnload
 {
@@ -183,4 +262,40 @@
     UIStoryboard *stryBoard=[UIStoryboard storyboardWithName:@"second" bundle:nil];
     [self presentModalViewController:[stryBoard instantiateInitialViewController] animated:YES];
 }
+
+
+
+-(void)onVideoClickImage:(UITapGestureRecognizer *)sender
+{
+    
+    UITapGestureRecognizer *singleTap = (UITapGestureRecognizer *)sender;
+    //NSLog(@"view class %@",[[[[singleTap view] superview]superview] class]);
+    NSIndexPath * indexPath= [self.videotable indexPathForCell:(CustomCell *)[[[singleTap view]superview]superview] ];
+    NSDictionary * temvideo;
+    
+    NSUInteger section = [indexPath section];
+    
+    NSUInteger row = [indexPath row]; 
+    if (self.sectionids==NULL) {
+        temvideo =[self.videolist objectAtIndex:row];
+    }
+    else
+    {
+        temvideo = [[self.sectionDict objectForKey:[self.sectionids objectAtIndex:section]] objectAtIndex:row];
+        
+    }    
+    self.selectvideoid = [temvideo objectForKey:@"id"];
+   
+    [self performSegueWithIdentifier:@"govideodetail" sender:self];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender  
+{  
+    
+    segueview = segue.destinationViewController; 
+    segueview.videoid = self.selectvideoid;
+}  
+
+
 @end
