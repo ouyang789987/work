@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2C7E710714B8170000A8F4ED"
-               BuildableName = "swtplayer.app"
+               BuildableName = "&#31227;&#21160;&#31038;&#25991;.app"
                BlueprintName = "swtplayer"
                ReferencedContainer = "container:swtplayer.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C7E710714B8170000A8F4ED"
-            BuildableName = "swtplayer.app"
+            BuildableName = "&#31227;&#21160;&#31038;&#25991;.app"
             BlueprintName = "swtplayer"
             ReferencedContainer = "container:swtplayer.xcodeproj">
          </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C7E710714B8170000A8F4ED"
-            BuildableName = "swtplayer.app"
+            BuildableName = "&#31227;&#21160;&#31038;&#25991;.app"
             BlueprintName = "swtplayer"
             ReferencedContainer = "container:swtplayer.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C7E710714B8170000A8F4ED"
-            BuildableName = "swtplayer.app"
+            BuildableName = "&#31227;&#21160;&#31038;&#25991;.app"
             BlueprintName = "swtplayer"
             ReferencedContainer = "container:swtplayer.xcodeproj">
          </BuildableReference>

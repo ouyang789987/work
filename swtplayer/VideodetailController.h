@@ -11,7 +11,7 @@
 #import "PlayVideoController.h"
 #import "CommonFn.h"
 
-@interface VideodetailController : UIViewController
+@interface VideodetailController : CommonUIViewController
 @property (weak, nonatomic)  NSString * videoid ; 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
 @property (weak, nonatomic) IBOutlet UILabel *videotitle;

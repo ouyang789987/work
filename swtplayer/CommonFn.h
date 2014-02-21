@@ -26,7 +26,8 @@
 
 +(NSMutableDictionary *) EzineList;
 
-+(NSString *) documentsDirectory ;
++(NSString *) GetDocumentsDirectory ;
+
 +(BOOL) writeNSDictData:(NSDictionary *)data  writeFileName:(NSString *)fileName;
 +(NSDictionary *) readNSDictData:(NSString *)fileName;
 
@@ -44,7 +45,10 @@
 +(BOOL) CheckJsonFile;
 
 +(void) GoHome:(UIViewController *) curview;
-+(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier;
-+(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier HasNavController:(BOOL) status;
++(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier WithUserEntity:(NSMutableDictionary *)param HasNavController:(BOOL) status ;
 
++(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier WithUserEntity:(NSMutableDictionary *)param;
+
++(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier ;
++(void) ChangeOrientation;
 @end

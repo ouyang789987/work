@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : CommonUIViewController
 
 -(IBAction)onClickButton:(id)sender;
 

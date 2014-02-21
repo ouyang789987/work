@@ -14,7 +14,7 @@
 #import "CustomCell.h"
 #import "CommonFn.h"
 
-@interface AreaViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> 
+@interface AreaViewController : CommonUIViewController<UITableViewDelegate, UITableViewDataSource> 
 
 @property (weak, nonatomic) IBOutlet UITableView *videotable;
 

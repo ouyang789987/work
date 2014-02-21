@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : CommonUIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *emailtxt;
 @property (weak, nonatomic) IBOutlet UITextField *passwordtxt;

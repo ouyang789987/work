@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AreaViewController.h"
 
-@interface MapViewController : UIViewController
+@interface MapViewController : CommonUIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webview;
 @property (weak, nonatomic)  NSString * areadata ; 

@@ -78,8 +78,9 @@
     
     //根据关系线跳转
     //[self performSegueWithIdentifier:@"goplayview" sender:self];  
-    
-    [CommonFn GoToShowView:self WithIdentifier:@"playcontrollerview"];
+    NSMutableDictionary * dict=[[NSMutableDictionary alloc]init];
+    [dict setObject:self.videoid forKey:@"videoid"];
+    [CommonFn GoToShowView:self WithIdentifier:@"playcontrollerview" WithUserEntity:dict];
     
 }
 
