@@ -44,7 +44,7 @@
     }
     
     NSDictionary * curvideo=[[CommonFn AllvList]objectForKey:self.videoid];
-    playurl =[[CommonFn SiteUrl] stringByAppendingString:[curvideo objectForKey:@"videopath"]];
+    playurl =[[CommonFn VideoDomain] stringByAppendingString:[curvideo objectForKey:@"videopath"]];
     //playurl=@"http://android.tvswt.com/swt_sj/20140210/gegeburu.rmvb";
     [self addEventToPlayView];
     

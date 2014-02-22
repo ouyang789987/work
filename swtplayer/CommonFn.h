@@ -15,6 +15,7 @@
  
 +(NSString *)JsonFileName;
 +(NSString *)SiteUrl;
++(NSString *)VideoDomain;
 
 +(NSMutableDictionary *)AllvList;
 

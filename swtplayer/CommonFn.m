@@ -11,6 +11,7 @@
 
 static NSString * _jsonfilename=@"alljson.txt";;
 static NSString * _siteurl=@"http://android.tvswt.com/";
+static NSString * _videodomain=@"http://sj.tvswt.com/";
 static NSMutableDictionary * _videojson;
 static NSMutableDictionary * _allvList;
 static NSMutableDictionary * _catlist;
@@ -78,6 +79,11 @@ static NSMutableDictionary * _ezinelist;
     return  _siteurl;
 }
 
+
++(NSString *)VideoDomain
+{
+    return  _videodomain;
+}
 
 
 +(NSString *) GetDocumentsDirectory 
