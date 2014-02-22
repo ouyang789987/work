@@ -44,11 +44,20 @@
     }
     
     NSDictionary * curvideo=[[CommonFn AllvList]objectForKey:self.videoid];
-    playurl =[[CommonFn VideoDomain] stringByAppendingString:[curvideo objectForKey:@"videopath"]];
-    //playurl=@"http://android.tvswt.com/swt_sj/20140210/gegeburu.rmvb";
+    NSString * vtempurl=[curvideo objectForKey:@"videopath"];
+    
+    if([vtempurl rangeOfString:@"://" options:NSCaseInsensitiveSearch].length>0)
+    {
+        playurl=vtempurl;
+    }
+    else
+    {
+        playurl =[[CommonFn VideoDomain] stringByAppendingString:vtempurl];
+    }
+    //playurl=@"http://42.96.198.211:8081/bj";
     [self addEventToPlayView];
     
-    NSLog(@"this is play videoid %@",self.videoid);
+    NSLog(@"this is play videoid %@",playurl);
     
     
     
@@ -59,16 +68,14 @@
     
     
     
-    //该文本框内容将作为视频输入的URL，apple的访问速度会比较慢，建议替换为其他播放地址。
-    //playContentText.text = @"http://119.188.2.50/data2/video04/2013/04/27/00ab3b24-74de-432b-b703-a46820c9cd6f.mp4";
-    //playContentText.text = @"http://meta.video.qiyi.com/63/8741c4546d1bb0aaf31defb80e867094.m3u8";
-    //playContentText.text = @"http://devimages.apple.com/iphone/samples/bipbop/gear4/prog_index.m3u8";
     //playContentText.text = @"rtmp://livertmppc.wasu.cn/live/dfws";
     
     //请添加您百度开发者中心应用对应的APIKey和SecretKey。
     NSString* msAK=@"zj3xmff1oQicdHOaeN9UlYqK";
     NSString* msSK=@"aOgUBfG6Fxw779oLm0SGazg8U5GnRcfe";
     
+    
+     
     //添加开发者信息
     [[CyberPlayerController class ]setBAEAPIKey:msAK SecretKey:msSK ];
     //当前只支持CyberPlayerController的单实例
@@ -91,9 +98,14 @@
                                                  name:CyberPlayerSeekingDidFinishNotification
                                                object:nil];
     
-    [super viewDidLoad];
+    [self startPlayback];
+    
+  
     sliderProgress.continuous = true;
+    
     // Do any additional setup after loading the view, typically from a nib.
+     
+     
     
 }
 
@@ -111,27 +123,17 @@
 
  
 
-- (void)viewDidUnload
-{
-    [self setClosebutton:nil];
-    [self setControlbox:nil];
-    [self setTopcontrolbar:nil];
-    [self setVideoboxview:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
 
 
 - (IBAction)closeView:(id)sender {
     
+    [self stopPlayback];
     [self dismissModalViewControllerAnimated:NO];
 }
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    NSLog(@"set layer out to henping");
     //设置横屏播放
     if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         return YES;
@@ -140,6 +142,19 @@
     return NO;
 }
 
+
+-(BOOL) shouldAutorotate
+{
+   
+    return YES;
+}
+
+-(NSUInteger) supportedInterfaceOrientations
+{
+    NSLog(@"ios6 fang fa");    
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+ 
 
 -(void) addEventToPlayView
 {
@@ -157,6 +172,22 @@
     controlbox.hidden=!controlbox.hidden;
     topcontrolbar.hidden=!topcontrolbar.hidden;
 }
+
+
+
+
+- (void)viewDidUnload
+{
+    [self stopPlayback];
+    [self setClosebutton:nil];
+    [self setControlbox:nil];
+    [self setTopcontrolbar:nil];
+    [self setVideoboxview:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
 
 - (void) onpreparedListener: (NSNotification*)aNotification
 {

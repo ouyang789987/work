@@ -77,10 +77,12 @@
 - (IBAction)GoToPlayVideo:(id)sender {
     
     //根据关系线跳转
-    //[self performSegueWithIdentifier:@"goplayview" sender:self];  
+    //[self performSegueWithIdentifier:@"goplayview" sender:self];
+    
     NSMutableDictionary * dict=[[NSMutableDictionary alloc]init];
     [dict setObject:self.videoid forKey:@"videoid"];
     [CommonFn GoToShowView:self WithIdentifier:@"playcontrollerview" WithUserEntity:dict];
+    
     
 }
 
