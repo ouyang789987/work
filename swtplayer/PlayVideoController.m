@@ -45,7 +45,7 @@
     
     NSDictionary * curvideo=[[CommonFn AllvList]objectForKey:self.videoid];
     playurl =[[CommonFn SiteUrl] stringByAppendingString:[curvideo objectForKey:@"videopath"]];
-    
+    //playurl=@"http://android.tvswt.com/swt_sj/20140210/gegeburu.rmvb";
     [self addEventToPlayView];
     
     NSLog(@"this is play videoid %@",self.videoid);
@@ -75,8 +75,9 @@
     cbPlayerController = [[CyberPlayerController alloc] init];
     //设置视频显示的位置
     [cbPlayerController.view setFrame: cbPlayerView.frame];
+    
     //将视频显示view添加到当前view中
-    [self.view addSubview:cbPlayerController.view];
+    [self.videoboxview addSubview:cbPlayerController.view];
     
     //注册监听，当播放器完成视频的初始化后会发送CyberPlayerLoadDidPreparedNotification通知，
     //此时naturalSize/videoHeight/videoWidth/duration等属性有效。
@@ -115,6 +116,7 @@
     [self setClosebutton:nil];
     [self setControlbox:nil];
     [self setTopcontrolbar:nil];
+    [self setVideoboxview:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

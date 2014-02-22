@@ -14,6 +14,8 @@
 @property (strong, nonatomic)  NSString * videoid ; 
 - (IBAction)closeView:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *videoboxview;
+
 @property (strong, nonatomic) IBOutlet UIButton *closebutton;
 
 @property (strong, nonatomic) IBOutlet UIView *topcontrolbar;

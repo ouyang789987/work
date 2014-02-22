@@ -331,14 +331,21 @@
                         <rect key="frame" x="0.0" y="64" width="480" height="207"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="VTx-uI-S1A">
+                            <view contentMode="scaleToFill" id="HqC-uC-xyC">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="207"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="VTx-uI-S1A">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="207"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="i8p-CC-tkS">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="25"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pQW-j7-1GB">
                                         <rect key="frame" x="7" y="5" width="35" height="17"/>
@@ -414,6 +421,7 @@
                         <outlet property="remainsProgress" destination="MTS-OB-jRQ" id="yRi-xC-3B0"/>
                         <outlet property="sliderProgress" destination="cDu-bJ-cvJ" id="iu2-HN-631"/>
                         <outlet property="topcontrolbar" destination="i8p-CC-tkS" id="dCA-WJ-1Cy"/>
+                        <outlet property="videoboxview" destination="HqC-uC-xyC" id="2hH-8a-5tu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTb-wq-RAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
