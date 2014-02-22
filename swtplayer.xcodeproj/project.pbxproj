@@ -12,11 +12,9 @@
 		2C7E711114B8170000A8F4ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7E711014B8170000A8F4ED /* CoreGraphics.framework */; };
 		2C7E712414B817AB00A8F4ED /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E712314B817AB00A8F4ED /* Storyboard.storyboard */; };
 		2C7E713114B82A5400A8F4ED /* second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E713014B82A5400A8F4ED /* second.storyboard */; };
-		4E98B01E18B762FB00C54EE7 /* libASIHTTP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01718B762FB00C54EE7 /* libASIHTTP.a */; };
 		4E98B01F18B762FB00C54EE7 /* libBase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01818B762FB00C54EE7 /* libBase64.a */; };
 		4E98B02118B762FB00C54EE7 /* libCyberPlayerUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01A18B762FB00C54EE7 /* libCyberPlayerUtils.a */; };
 		4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */; };
-		4E98B02318B762FB00C54EE7 /* libReachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01C18B762FB00C54EE7 /* libReachability.a */; };
 		4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01D18B762FB00C54EE7 /* libSBJSON.a */; };
 		4EAB8AFB18B655AF00148DC7 /* libCyberPlayerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */; };
 		4EFF548518B74F920091BA84 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548418B74F920091BA84 /* OpenAL.framework */; };
@@ -376,11 +374,9 @@
 				2C7E710D14B8170000A8F4ED /* UIKit.framework in Frameworks */,
 				2C7E710F14B8170000A8F4ED /* Foundation.framework in Frameworks */,
 				2C7E711114B8170000A8F4ED /* CoreGraphics.framework in Frameworks */,
-				4E98B01E18B762FB00C54EE7 /* libASIHTTP.a in Frameworks */,
 				4E98B01F18B762FB00C54EE7 /* libBase64.a in Frameworks */,
 				4E98B02118B762FB00C54EE7 /* libCyberPlayerUtils.a in Frameworks */,
 				4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */,
-				4E98B02318B762FB00C54EE7 /* libReachability.a in Frameworks */,
 				4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */,
 				4EAB8AFB18B655AF00148DC7 /* libCyberPlayerController.a in Frameworks */,
 			);
@@ -934,7 +930,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/swtplayer\"",
@@ -966,7 +962,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/swtplayer\"",
