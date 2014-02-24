@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIView *controlbox;
 
 
-@property (retain, nonatomic) IBOutlet UIView *cbPlayerView;
+@property (retain, nonatomic) IBOutlet UIView * cbPlayerView;
 
 - (IBAction)onClickPlay:(id)sender;
 

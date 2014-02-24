@@ -9,13 +9,15 @@
 #import "PlayVideoAllViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "CyberPlayerController.h"
+#import "Vitamio.h"
 
 @implementation PlayVideoAllViewController
 {
     
-    CyberPlayerController *cbPlayerController;
+    VMediaPlayer * cbPlayerController;
     NSTimer *timer;
+    BOOL didPrepared;
+    
 }
 
 @synthesize videoid;
@@ -34,8 +36,7 @@
 
 
 - (void)viewDidLoad
-{
-     NSLog(@"this is play all video view box");    
+{  
     [super viewDidLoad];
     if(self.videoid==NULL)
     {
@@ -58,44 +59,9 @@
     
     NSLog(@"this is play videoid %@",playurl);
     
+  
+    [self initplay];
     
-    
-    
-    
-    cbPlayerView.layer.borderWidth = 2.0;
-    cbPlayerView.layer.borderColor = [[UIColor blueColor]CGColor];
-    
-    
-    
-    //playContentText.text = @"rtmp://livertmppc.wasu.cn/live/dfws";
-    
-    //请添加您百度开发者中心应用对应的APIKey和SecretKey。
-    NSString* msAK=@"zj3xmff1oQicdHOaeN9UlYqK";
-    NSString* msSK=@"aOgUBfG6Fxw779oLm0SGazg8U5GnRcfe";
-    
-    
-    
-    //添加开发者信息
-    [[CyberPlayerController class ]setBAEAPIKey:msAK SecretKey:msSK ];
-    //当前只支持CyberPlayerController的单实例
-    cbPlayerController = [[CyberPlayerController alloc] init];
-    //设置视频显示的位置
-    [cbPlayerController.view setFrame: cbPlayerView.frame];
-    
-    //将视频显示view添加到当前view中
-    [self.videoboxview addSubview:cbPlayerController.view];
-    
-    //注册监听，当播放器完成视频的初始化后会发送CyberPlayerLoadDidPreparedNotification通知，
-    //此时naturalSize/videoHeight/videoWidth/duration等属性有效。
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onpreparedListener:)
-                                                 name: CyberPlayerLoadDidPreparedNotification
-                                               object:nil];
-    //注册监听，当播放器完成视频播放位置调整后会发送CyberPlayerSeekingDidFinishNotification通知，
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(seekComplete:)
-                                                 name:CyberPlayerSeekingDidFinishNotification
-                                               object:nil];
     
     [self startPlayback];
     
@@ -108,6 +74,28 @@
     
 }
 
+
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(playurl)
+    {
+        [self prepareVideo];
+    }
+    
+}
+
+
+-(void) prepareVideo
+{
+    
+    if(playurl)
+    {
+        [self startPlayback];
+    }
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -206,17 +194,29 @@
 - (IBAction)onClickPlay:(id)sender {
     //当按下播放按钮时，调用startPlayback方法
     
-    if(cbPlayerController.playbackState==CBPMoviePlaybackStatePlaying)
-    {
-        [self stopPlayback];
-    }
-    else
-    {
-        [self startPlayback];
+    BOOL isPlaying = [cbPlayerController isPlaying];
+    if (isPlaying) {
+        [cbPlayerController pause];
+        
+    } else {
+        if(didPrepared)
+            [cbPlayerController start];
+        else
+            [self prepareVideo];         
     }
     //controlbox.hidden=!controlbox.hidden;
 }
 
+-(void)initplay
+{
+    if(!cbPlayerController)
+    {
+        cbPlayerController = [VMediaPlayer sharedInstance];
+        [cbPlayerController setupPlayerWithCarrierView:cbPlayerView withDelegate:self];
+        
+    }
+    
+}
 
 
 - (void)startPlayback{
@@ -227,40 +227,16 @@
     {
         url = [NSURL URLWithString:[playurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
-    
-    
-    switch (cbPlayerController.playbackState) {
-        case CBPMoviePlaybackStateStopped:
-        case CBPMoviePlaybackStateInterrupted:
-            [cbPlayerController setContentURL:url];
-            //初始化完成后直接播放视频，不需要调用play方法
-            cbPlayerController.shouldAutoplay = YES;
-            //初始化视频文件
-            [cbPlayerController prepareToPlay];
-            [playButton setTitle:@"pause" forState:UIControlStateNormal];
-            break;
-        case CBPMoviePlaybackStatePlaying:
-            //如果当前正在播放视频时，暂停播放。
-            [cbPlayerController pause];
-            [playButton setTitle:@"play" forState:UIControlStateNormal];
-            break;
-        case CBPMoviePlaybackStatePaused:
-            //如果当前播放视频已经暂停，重新开始播放。
-            [cbPlayerController start];
-            [playButton setTitle:@"pause" forState:UIControlStateNormal];
-            break;
-        default:
-            break;
-    }
-    
+    [UIApplication sharedApplication].idleTimerDisabled=YES;
+    [cbPlayerController setDataSource:url];
+    [cbPlayerController prepareAsync];    
+        
 }
 
 - (void)stopPlayback{
     //停止视频播放
     
-    [cbPlayerController stop];
-    
-    [playButton setTitle:@"play" forState:UIControlStateNormal];
+    [cbPlayerController pause];
     [self stopTimer];
     
 }
@@ -292,7 +268,7 @@
 
 - (void)timerHandler:(NSTimer*)timer
 {
-    [self refreshProgress:cbPlayerController.currentPlaybackTime totalDuration:cbPlayerController.duration];
+    [self refreshProgress:[cbPlayerController getCurrentPosition ] totalDuration:[cbPlayerController getDuration]];
 }
 
 
@@ -361,7 +337,7 @@
 
 - (IBAction)onDragSlideValueChanged:(id)sender {
     NSLog(@"slide changing, %f", sliderProgress.value);
-    [self refreshProgress:sliderProgress.value totalDuration:cbPlayerController.duration];
+    [self refreshProgress:sliderProgress.value totalDuration:[cbPlayerController getDuration]];
     
 }
 
@@ -380,6 +356,28 @@
     [self stopTimer];
 }
 
+#pragma mark VMediaPlayerDelegate Implement / Required
 
+- (void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg
+{
+	 
+	didPrepared = YES;
+    [player start];
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player playbackComplete:(id)arg
+{
+	 
+	[player reset];
+	didPrepared = NO;
+	[UIApplication sharedApplication].idleTimerDisabled = NO;
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player error:(id)arg
+{
+	NSLog(@"VMediaPlayer Error: %@", arg);
+}
+
+ 
 
 @end

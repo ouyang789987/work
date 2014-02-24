@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lpn-QJ-b6u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lpn-QJ-b6u">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -295,6 +295,11 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="nM5-cj-gEh">
                                         <rect key="frame" x="52" y="-2" width="364" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="onDragSlideDone:" destination="KkE-OJ-oLf" eventType="touchUpInside" id="faM-My-Mhc"/>
+                                            <action selector="onDragSlideStart:" destination="KkE-OJ-oLf" eventType="touchDown" id="mLw-MA-M8b"/>
+                                            <action selector="onDragSlideValueChanged:" destination="KkE-OJ-oLf" eventType="valueChanged" id="xX8-LQ-3cp"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -489,6 +494,11 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="cDu-bJ-cvJ">
                                         <rect key="frame" x="54" y="3" width="373" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <action selector="onDragSlideDone:" destination="t7V-CV-8gC" eventType="touchUpInside" id="jIk-tG-Wh9"/>
+                                            <action selector="onDragSlideStart:" destination="t7V-CV-8gC" eventType="touchDown" id="1gu-yq-MaB"/>
+                                            <action selector="onDragSlideValueChanged:" destination="t7V-CV-8gC" eventType="valueChanged" id="URq-nH-5ec"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00:00" lineBreakMode="tailTruncation" minimumFontSize="10" id="MZH-kd-4nR">
                                         <rect key="frame" x="433" y="3" width="42" height="21"/>
@@ -551,81 +561,6 @@
         <image name="goback.png" width="78" height="45"/>
         <image name="play.png" width="48" height="48"/>
     </resources>
-    <classes>
-        <class className="AreaListViewController" superclassName="AreaViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AreaListViewController.h"/>
-        </class>
-        <class className="AreaViewController" superclassName="CommonUIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AreaViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onClickButton:"/>
-                <relationship kind="outlet" name="videotable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CatViewController" superclassName="AreaViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CatViewController.h"/>
-        </class>
-        <class className="CommonUIViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommonUIViewController.h"/>
-        </class>
-        <class className="LiveViewController" superclassName="AreaViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LiveViewController.h"/>
-        </class>
-        <class className="MapViewController" superclassName="CommonUIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="GoBackBtClick:"/>
-                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="PlayVideoAllViewController" superclassName="CommonUIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayVideoAllViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeView:"/>
-                <relationship kind="action" name="onClickPlay:"/>
-                <relationship kind="action" name="onDragSlideDone:"/>
-                <relationship kind="action" name="onDragSlideStart:"/>
-                <relationship kind="action" name="onDragSlideValueChanged:"/>
-                <relationship kind="outlet" name="cbPlayerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="closebutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="controlbox" candidateClass="UIView"/>
-                <relationship kind="outlet" name="currentProgress" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="remainsProgress" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sliderProgress" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="topcontrolbar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="videoboxview" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="PlayVideoController" superclassName="CommonUIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayVideoController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeView:"/>
-                <relationship kind="action" name="onClickPlay:"/>
-                <relationship kind="action" name="onDragSlideDone:"/>
-                <relationship kind="action" name="onDragSlideStart:"/>
-                <relationship kind="action" name="onDragSlideValueChanged:"/>
-                <relationship kind="outlet" name="cbPlayerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="closebutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="controlbox" candidateClass="UIView"/>
-                <relationship kind="outlet" name="currentProgress" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="remainsProgress" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sliderProgress" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="topcontrolbar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="videoboxview" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="VideodetailController" superclassName="CommonUIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideodetailController.h"/>
-            <relationships>
-                <relationship kind="action" name="GoToPlayVideo:"/>
-                <relationship kind="outlet" name="cattitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="videotitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
