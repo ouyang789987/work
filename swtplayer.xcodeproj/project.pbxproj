@@ -12,6 +12,7 @@
 		2C7E711114B8170000A8F4ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7E711014B8170000A8F4ED /* CoreGraphics.framework */; };
 		2C7E712414B817AB00A8F4ED /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E712314B817AB00A8F4ED /* Storyboard.storyboard */; };
 		2C7E713114B82A5400A8F4ED /* second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E713014B82A5400A8F4ED /* second.storyboard */; };
+		4E0B698D18BC418E00526EC9 /* PlayVideoAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B698C18BC418E00526EC9 /* PlayVideoAllViewController.m */; };
 		4E98B01F18B762FB00C54EE7 /* libBase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01818B762FB00C54EE7 /* libBase64.a */; };
 		4E98B02118B762FB00C54EE7 /* libCyberPlayerUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01A18B762FB00C54EE7 /* libCyberPlayerUtils.a */; };
 		4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */; };
@@ -155,6 +156,8 @@
 		2C7E711014B8170000A8F4ED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2C7E712314B817AB00A8F4ED /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2C7E713014B82A5400A8F4ED /* second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = second.storyboard; sourceTree = "<group>"; };
+		4E0B698B18BC418E00526EC9 /* PlayVideoAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayVideoAllViewController.h; sourceTree = "<group>"; };
+		4E0B698C18BC418E00526EC9 /* PlayVideoAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayVideoAllViewController.m; sourceTree = "<group>"; };
 		4E98B01618B762FB00C54EE7 /* CyberPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyberPlayerController.h; sourceTree = "<group>"; };
 		4E98B01718B762FB00C54EE7 /* libASIHTTP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libASIHTTP.a; sourceTree = "<group>"; };
 		4E98B01818B762FB00C54EE7 /* libBase64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBase64.a; sourceTree = "<group>"; };
@@ -475,6 +478,8 @@
 				D76F3C7818B5B2A80088F44E /* PlayVideoController.m */,
 				D765E21C18B72C9400BD20B1 /* CommonUIViewController.h */,
 				D765E21D18B72C9400BD20B1 /* CommonUIViewController.m */,
+				4E0B698B18BC418E00526EC9 /* PlayVideoAllViewController.h */,
+				4E0B698C18BC418E00526EC9 /* PlayVideoAllViewController.m */,
 			);
 			path = swtplayer;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				D7B2430B18B4B21500477865 /* VideodetailController.m in Sources */,
 				D76F3C7918B5B2A90088F44E /* PlayVideoController.m in Sources */,
 				D765E21E18B72C9400BD20B1 /* CommonUIViewController.m in Sources */,
+				4E0B698D18BC418E00526EC9 /* PlayVideoAllViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

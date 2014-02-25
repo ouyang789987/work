@@ -81,7 +81,22 @@
     
     NSMutableDictionary * dict=[[NSMutableDictionary alloc]init];
     [dict setObject:self.videoid forKey:@"videoid"];
-    [CommonFn GoToShowView:self WithIdentifier:@"playcontrollerview" WithUserEntity:dict];
+    
+     NSDictionary * curvideo= [[CommonFn AllvList] objectForKey:self.videoid];
+    
+    NSString * vtempurl=[curvideo objectForKey:@"videopath"];
+    
+    if([vtempurl rangeOfString:@"://" options:NSCaseInsensitiveSearch].length>0)
+    {
+        
+     [CommonFn GoToShowView:self WithIdentifier:@"playallvideos" WithUserEntity:dict];
+   
+    }
+    else
+    {
+        [CommonFn GoToShowView:self WithIdentifier:@"playcontrollerview" WithUserEntity:dict];
+    
+    }
     
     
 }
