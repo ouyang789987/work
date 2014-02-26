@@ -32,7 +32,7 @@
 
 
 
-
+/*
 
 - (void)viewDidLoad
 {
@@ -381,6 +381,6 @@
     [self stopTimer];
 }
  
-
+*/
 @end
 

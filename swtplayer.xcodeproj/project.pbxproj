@@ -12,15 +12,14 @@
 		2C7E711114B8170000A8F4ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7E711014B8170000A8F4ED /* CoreGraphics.framework */; };
 		2C7E712414B817AB00A8F4ED /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E712314B817AB00A8F4ED /* Storyboard.storyboard */; };
 		2C7E713114B82A5400A8F4ED /* second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7E713014B82A5400A8F4ED /* second.storyboard */; };
+		4E09951718BD8E58004648E1 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24318BC8B88009DCEFC /* libVitamio.a */; };
+		4E09951818BD8FAB004648E1 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24118BC8B88009DCEFC /* libffmpeg.a */; };
 		4E0B698D18BC418E00526EC9 /* PlayVideoAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B698C18BC418E00526EC9 /* PlayVideoAllViewController.m */; };
 		4E98B01F18B762FB00C54EE7 /* libBase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01818B762FB00C54EE7 /* libBase64.a */; };
 		4E98B02118B762FB00C54EE7 /* libCyberPlayerUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01A18B762FB00C54EE7 /* libCyberPlayerUtils.a */; };
 		4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */; };
 		4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01D18B762FB00C54EE7 /* libSBJSON.a */; };
-		4EAB8AFB18B655AF00148DC7 /* libCyberPlayerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */; };
-		4EBDB24618BC8B88009DCEFC /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24118BC8B88009DCEFC /* libffmpeg.a */; };
 		4EBDB24718BC8B88009DCEFC /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24218BC8B88009DCEFC /* libopenssl.a */; };
-		4EBDB24818BC8B88009DCEFC /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24318BC8B88009DCEFC /* libVitamio.a */; };
 		4EBDB24B18BC9694009DCEFC /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24A18BC9694009DCEFC /* libbz2.dylib */; };
 		4EBDB24D18BC96B4009DCEFC /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24C18BC96B4009DCEFC /* libiconv.dylib */; };
 		4EBDB24F18BC96C7009DCEFC /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24E18BC96C7009DCEFC /* libstdc++.dylib */; };
@@ -35,7 +34,7 @@
 		4EFF548918B74FB50091BA84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548818B74FB50091BA84 /* QuartzCore.framework */; };
 		4EFF548B18B74FCA0091BA84 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548A18B74FCA0091BA84 /* libbz2.1.0.dylib */; };
 		4EFF548D18B74FD50091BA84 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548C18B74FD50091BA84 /* AudioToolbox.framework */; };
-		D70B344B18AB686900EE3C60 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B344A18AB686900EE3C60 /* JSONKit.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc "; }; };
+		D70B344B18AB686900EE3C60 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B344A18AB686900EE3C60 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D745E1F318911C49005DFC78 /* AreaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D745E1F218911C49005DFC78 /* AreaListViewController.m */; };
 		D74CB0071893B2CA00C21DEA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74CB0061893B2CA00C21DEA /* MapKit.framework */; };
 		D74CB00A1893BD1D00C21DEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74CB0091893BD1D00C21DEA /* CFNetwork.framework */; };
@@ -383,6 +382,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E09951818BD8FAB004648E1 /* libffmpeg.a in Frameworks */,
+				4E09951718BD8E58004648E1 /* libVitamio.a in Frameworks */,
+				4EFEFB8418B856DC009D8521 /* libReachability.a in Frameworks */,
 				4EBDB25718BC970B009DCEFC /* MediaPlayer.framework in Frameworks */,
 				4EBDB25518BC96F4009DCEFC /* CoreVideo.framework in Frameworks */,
 				4EBDB25318BC96E9009DCEFC /* CoreMedia.framework in Frameworks */,
@@ -390,7 +392,6 @@
 				4EBDB24F18BC96C7009DCEFC /* libstdc++.dylib in Frameworks */,
 				4EBDB24D18BC96B4009DCEFC /* libiconv.dylib in Frameworks */,
 				4EBDB24B18BC9694009DCEFC /* libbz2.dylib in Frameworks */,
-				4EFEFB8418B856DC009D8521 /* libReachability.a in Frameworks */,
 				4EFEFB8318B856C0009D8521 /* libASIHTTP.a in Frameworks */,
 				D75A61B31890F5B200BE5899 /* MobileCoreServices.framework in Frameworks */,
 				4EFF548D18B74FD50091BA84 /* AudioToolbox.framework in Frameworks */,
@@ -411,10 +412,7 @@
 				4E98B02118B762FB00C54EE7 /* libCyberPlayerUtils.a in Frameworks */,
 				4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */,
 				4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */,
-				4EAB8AFB18B655AF00148DC7 /* libCyberPlayerController.a in Frameworks */,
-				4EBDB24618BC8B88009DCEFC /* libffmpeg.a in Frameworks */,
 				4EBDB24718BC8B88009DCEFC /* libopenssl.a in Frameworks */,
-				4EBDB24818BC8B88009DCEFC /* libVitamio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,7 +763,7 @@
 		2C7E70FF14B816FF00A8F4ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 2C7E710214B816FF00A8F4ED /* Build configuration list for PBXProject "swtplayer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -939,8 +937,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -955,11 +954,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -968,8 +971,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -977,9 +981,12 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1007,13 +1014,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/swtplayer\"",
-					"\"$(SRCROOT)/../back up/SDWebImage.framework/Versions/A\"",
-					"\"$(SRCROOT)/swtplayer/SDWebImage.framework\"",
-					"\"$(SRCROOT)/swtplayer/SDWebImage\"",
-					"\"$(SRCROOT)/swtplayer/videolib\"",
-					"\"$(SRCROOT)/swtplayer/vlib\"",
-					"\"$(SRCROOT)/swtplayer/Vitamio\"",
+					"\\\"$(SRCROOT)/swtplayer\\\"",
+					"\\\"$(SRCROOT)/../back\\ up/SDWebImage.framework/Versions/A\\\"",
+					"\\\"$(SRCROOT)/swtplayer/SDWebImage.framework\\\"",
+					"\\\"$(SRCROOT)/swtplayer/SDWebImage\\\"",
+					"\\\"$(SRCROOT)/swtplayer/videolib\\\"",
+					"\\\"$(SRCROOT)/swtplayer/vlib\\\"",
+					"\\\"$(SRCROOT)/swtplayer/Vitamio\\\"",
+					/work/ioswork/swtplayer/swtplayer/swtplayer/Vitamio,
+					/work/ioswork/swtplayer/swtplayer/swtplayer/vlib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "移动社文";
@@ -1046,19 +1055,21 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/swtplayer\"",
-					"\"$(SRCROOT)/../back up/SDWebImage.framework/Versions/A\"",
-					"\"$(SRCROOT)/swtplayer/SDWebImage.framework\"",
-					"\"$(SRCROOT)/swtplayer/SDWebImage\"",
-					"\"$(SRCROOT)/swtplayer/videolib\"",
-					"\"$(SRCROOT)/swtplayer/vlib\"",
-					"\"$(SRCROOT)/swtplayer/Vitamio\"",
+					"\\\"$(SRCROOT)/swtplayer\\\"",
+					"\\\"$(SRCROOT)/../back\\ up/SDWebImage.framework/Versions/A\\\"",
+					"\\\"$(SRCROOT)/swtplayer/SDWebImage.framework\\\"",
+					"\\\"$(SRCROOT)/swtplayer/SDWebImage\\\"",
+					"\\\"$(SRCROOT)/swtplayer/videolib\\\"",
+					"\\\"$(SRCROOT)/swtplayer/vlib\\\"",
+					"\\\"$(SRCROOT)/swtplayer/Vitamio\\\"",
+					/work/ioswork/swtplayer/swtplayer/swtplayer/Vitamio,
+					/work/ioswork/swtplayer/swtplayer/swtplayer/vlib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "移动社文";
 				PROVISIONING_PROFILE = "62DA2FCC-4AF4-4D14-8C8F-60EB70CF4534";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "62DA2FCC-4AF4-4D14-8C8F-60EB70CF4534";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = armv7;

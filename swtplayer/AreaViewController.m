@@ -269,8 +269,17 @@
 {
     
     UITapGestureRecognizer *singleTap = (UITapGestureRecognizer *)sender;
-    //NSLog(@"view class %@",[[[[singleTap view] superview]superview] class]);
-    NSIndexPath * indexPath= [self.videotable indexPathForCell:(CustomCell *)[[[singleTap view]superview]superview] ];
+   // NSLog(@"view class %@",[[[[singleTap view] superview]superview] class]);
+   // NSLog(@"view class 2 %@",[[[[[singleTap view] superview]superview]superview] class]);
+    
+    UIView * curcellview=[[[singleTap view] superview]superview];
+    
+    if(![curcellview isKindOfClass:[CustomCell class]])
+    {
+        curcellview=[[[[singleTap view] superview]superview]superview];
+    }
+    
+    NSIndexPath * indexPath= [self.videotable indexPathForCell:(CustomCell *)curcellview ];
     NSDictionary * temvideo;
     
     NSUInteger section = [indexPath section];
@@ -285,7 +294,7 @@
         
     }    
     self.selectvideoid = [temvideo objectForKey:@"id"];
-   
+    //NSLog(@"curid %@",self.selectvideoid);
     [self performSegueWithIdentifier:@"govideodetail" sender:self];
     
 }

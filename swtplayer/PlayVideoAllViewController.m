@@ -54,12 +54,17 @@
     {
         playurl =[[CommonFn VideoDomain] stringByAppendingString:vtempurl];
     }
-    //playurl=@"http://42.96.198.211:8081/bj";
+    //playurl=@"mms://42.96.198.211/bj";
     [self addEventToPlayView];
     
     NSLog(@"this is play videoid %@",playurl);
     
-  
+    
+    
+    //将视频显示view添加到当前view中
+    //[cbPlayerController setVideoFillMode:VMVideoFillModeStretch];
+    
+    
     [self initplay];
     
     
@@ -115,8 +120,13 @@
 - (IBAction)closeView:(id)sender {
     
     [self stopPlayback];
+    didPrepared=NO;
+    [cbPlayerController reset];
+    [cbPlayerController unSetupPlayer];
+    cbPlayerController =nil;
     [self dismissModalViewControllerAnimated:NO];
 }
+
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -133,7 +143,7 @@
 -(BOOL) shouldAutorotate
 {
     
-    return YES;
+    return NO;
 }
 
 -(NSUInteger) supportedInterfaceOrientations
@@ -165,7 +175,9 @@
 
 - (void)viewDidUnload
 {
-    [self stopPlayback];
+    [cbPlayerController reset];
+    didPrepared=NO;
+    [cbPlayerController unSetupPlayer];
     [self setClosebutton:nil];
     [self setControlbox:nil];
     [self setTopcontrolbar:nil];
@@ -223,10 +235,12 @@
     
     
     NSURL *url = [NSURL URLWithString:playurl];
+    /*
     if (!url)
     {
         url = [NSURL URLWithString:[playurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
+     */
     [UIApplication sharedApplication].idleTimerDisabled=YES;
     [cbPlayerController setDataSource:url];
     [cbPlayerController prepareAsync];    
@@ -240,6 +254,9 @@
     [self stopTimer];
     
 }
+
+
+
 
 
 
@@ -372,6 +389,7 @@
 	didPrepared = NO;
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
+
 
 - (void)mediaPlayer:(VMediaPlayer *)player error:(id)arg
 {

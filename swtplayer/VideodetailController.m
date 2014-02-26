@@ -85,8 +85,8 @@
      NSDictionary * curvideo= [[CommonFn AllvList] objectForKey:self.videoid];
     
     NSString * vtempurl=[curvideo objectForKey:@"videopath"];
-    
-    if([vtempurl rangeOfString:@"://" options:NSCaseInsensitiveSearch].length>0)
+    BOOL islive=[vtempurl rangeOfString:@"://" options:NSCaseInsensitiveSearch].length>0;
+    if(YES)
     {
         
      [CommonFn GoToShowView:self WithIdentifier:@"playallvideos" WithUserEntity:dict];
