@@ -39,8 +39,7 @@ static NSMutableDictionary * _ezinelist;
     _catlist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _catvideolist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _arealist=[NSMutableDictionary dictionaryWithCapacity:0] ;
-    _ezinelist=[NSMutableDictionary dictionaryWithCapacity:0] ;
-     NSLog(@"init varb");
+    _ezinelist=[NSMutableDictionary dictionaryWithCapacity:0] ;    
 }
 
 +(NSMutableDictionary *)AllvList
@@ -170,7 +169,7 @@ static NSMutableDictionary * _ezinelist;
     NSArray * catjson= [_videojson objectForKey:@"catjson"];
     NSArray * ezinejson= [_videojson objectForKey:@"ezinejson"];
     
-    NSLog(@"my parse");
+    //NSLog(@"my parse");
     for(int i=0;i<[homejson count];i++)
     {
         NSDictionary * video=[homejson objectAtIndex:i];  
@@ -303,7 +302,7 @@ static NSMutableDictionary * _ezinelist;
     
     //设置过渡的样式，和显示的样式
     playview.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
-    playview.modalPresentationStyle=UIModalPresentationFullScreen;     
+    playview.modalPresentationStyle=UIModalPresentationCurrentContext;
     playview.userEntity=param;
     if(status==YES)
     {
@@ -314,7 +313,7 @@ static NSMutableDictionary * _ezinelist;
     else
     {
       //直接显示
-      [curview presentModalViewController:playview animated:NO];
+      [curview presentViewController:playview animated:NO completion:nil];
          
     }
     
@@ -329,6 +328,28 @@ static NSMutableDictionary * _ezinelist;
 +(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier 
 {
     [self GoToShowView:curview WithIdentifier:showviewIdentifier WithUserEntity:nil HasNavController:NO];
+}
+
++(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) rootview
+{
+    
+    [self ShowTextInfo:txt OntheView:rootview SleepTime:2];
+    
+}
+
++(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) rootview SleepTime:(unsigned int)time
+{
+    
+    rootview.HUD =  [[MBProgressHUD alloc] initWithView:rootview.view];
+    [rootview.view addSubview:rootview.HUD];
+    rootview.HUD.dimBackground=YES;
+    rootview.HUD.labelText=txt;
+    [rootview.HUD showAnimated:YES whileExecutingBlock:^{
+        sleep(time);
+    } completionBlock:^{
+        [rootview.HUD removeFromSuperview];
+    }];
+    
 }
 
 

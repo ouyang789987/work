@@ -40,6 +40,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+}
+
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
+    if([CommonFn CheckJsonFile])
+    {
+        [CommonFn ParseJsonData];
+        [CommonFn GoHome:self];      
+    }
+    
 }
 
 - (void)viewDidUnload
@@ -51,12 +65,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
+ 
 
 
 
@@ -76,6 +85,10 @@
 -(void)LoginUser
 
 {
+    
+    //[CommonFn ParseJsonData];
+    //[CommonFn GoHome:self];
+    
     BOOL emailnil=[emailtxt.text isEqualToString:@""];
     BOOL passwordnil=[passwordtxt.text isEqualToString:@""];
     if(emailnil || passwordnil)

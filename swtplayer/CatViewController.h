@@ -10,6 +10,7 @@
 #import "AreaViewController.h"
 
 @interface CatViewController : AreaViewController
+- (IBAction)refreshdata:(id)sender;
 
 
 @end

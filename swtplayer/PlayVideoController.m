@@ -31,8 +31,8 @@
 @synthesize playurl;
 
 
-
 /*
+
 
 - (void)viewDidLoad
 {
@@ -151,8 +151,8 @@
 
 -(NSUInteger) supportedInterfaceOrientations
 {
-    NSLog(@"ios6 fang fa");    
-    return UIInterfaceOrientationMaskAllButUpsideDown;
+       
+    return UIInterfaceOrientationMaskLandscapeRight;
 }
  
 
@@ -382,5 +382,6 @@
 }
  
 */
+
 @end
 

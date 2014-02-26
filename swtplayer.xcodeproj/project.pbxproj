@@ -27,6 +27,7 @@
 		4EBDB25318BC96E9009DCEFC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB25218BC96E9009DCEFC /* CoreMedia.framework */; };
 		4EBDB25518BC96F4009DCEFC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB25418BC96F4009DCEFC /* CoreVideo.framework */; };
 		4EBDB25718BC970B009DCEFC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB25618BC970B009DCEFC /* MediaPlayer.framework */; };
+		4EFE432818BEDEBD00D798E9 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE432718BEDEBD00D798E9 /* refresh.png */; };
 		4EFEFB8318B856C0009D8521 /* libASIHTTP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01718B762FB00C54EE7 /* libASIHTTP.a */; };
 		4EFEFB8418B856DC009D8521 /* libReachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01C18B762FB00C54EE7 /* libReachability.a */; };
 		4EFF548518B74F920091BA84 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548418B74F920091BA84 /* OpenAL.framework */; };
@@ -193,6 +194,7 @@
 		4EBDB25218BC96E9009DCEFC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4EBDB25418BC96F4009DCEFC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		4EBDB25618BC970B009DCEFC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		4EFE432718BEDEBD00D798E9 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		4EFF548418B74F920091BA84 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		4EFF548618B74F9F0091BA84 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4EFF548818B74FB50091BA84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -700,6 +702,7 @@
 		D76F3C7B18B5B7AC0088F44E /* img */ = {
 			isa = PBXGroup;
 			children = (
+				4EFE432718BEDEBD00D798E9 /* refresh.png */,
 				D765E22018B742BD00BD20B1 /* goback.png */,
 				D765E22118B742BD00BD20B1 /* play.png */,
 				D765E22218B742BD00BD20B1 /* stop.png */,
@@ -874,6 +877,7 @@
 				D765E22318B742BD00BD20B1 /* goback.png in Resources */,
 				D765E22418B742BD00BD20B1 /* play.png in Resources */,
 				D765E22518B742BD00BD20B1 /* stop.png in Resources */,
+				4EFE432818BEDEBD00D798E9 /* refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,8 +1003,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LI bao long (7VAAN92QB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LI bao long (7VAAN92QB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/swtplayer\"",
@@ -1026,8 +1030,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "移动社文";
-				PROVISIONING_PROFILE = "62DA2FCC-4AF4-4D14-8C8F-60EB70CF4534";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "62DA2FCC-4AF4-4D14-8C8F-60EB70CF4534";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1040,8 +1044,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LI bao long (7VAAN92QB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LI bao long (7VAAN92QB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/swtplayer\"",
@@ -1067,8 +1071,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "移动社文";
-				PROVISIONING_PROFILE = "62DA2FCC-4AF4-4D14-8C8F-60EB70CF4534";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "62DA2FCC-4AF4-4D14-8C8F-60EB70CF4534";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;

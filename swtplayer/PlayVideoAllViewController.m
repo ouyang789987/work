@@ -64,12 +64,13 @@
     //将视频显示view添加到当前view中
     //[cbPlayerController setVideoFillMode:VMVideoFillModeStretch];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationchanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     [self initplay];
     
     
     [self startPlayback];
-    
+    [CommonFn ShowTextInfo:@"正在连接....." OntheView:self SleepTime:2];
     
     sliderProgress.continuous = true;
     
@@ -130,7 +131,7 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    NSLog(@"set layer out to henping");
+    //NSLog(@"set layer out to henping");
     //设置横屏播放
     if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         return YES;
@@ -143,13 +144,18 @@
 -(BOOL) shouldAutorotate
 {
     
-    return NO;
+    return YES;
 }
 
 -(NSUInteger) supportedInterfaceOrientations
 {
-    NSLog(@"ios6 fang fa");
-    return UIInterfaceOrientationMaskAllButUpsideDown;
+    
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+
+-(void)orientationchanged:(NSNotification *) note
+{
+    //NSLog(@"orientation changed");
 }
 
 
@@ -187,19 +193,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-
-- (void) onpreparedListener: (NSNotification*)aNotification
-{
-    //视频文件完成初始化，开始播放视频并启动刷新timer。
-    playButton.titleLabel.text = @"pause";
-    [self startTimer];
-}
-
-- (void)seekComplete:(NSNotification*)notification
-{
-    //开始启动UI刷新
-    [self startTimer];
-}
 
 
 
@@ -243,7 +236,8 @@
      */
     [UIApplication sharedApplication].idleTimerDisabled=YES;
     [cbPlayerController setDataSource:url];
-    [cbPlayerController prepareAsync];    
+    [cbPlayerController prepareAsync];
+    [self startTimer];
         
 }
 
@@ -285,7 +279,8 @@
 
 - (void)timerHandler:(NSTimer*)timer
 {
-    [self refreshProgress:[cbPlayerController getCurrentPosition ] totalDuration:[cbPlayerController getDuration]];
+    
+    [self refreshProgress:[cbPlayerController getCurrentPosition ]/1000 totalDuration:[cbPlayerController getDuration]/1000];
 }
 
 
@@ -331,6 +326,7 @@
 
 
 - (void)refreshProgress:(int) currentTime totalDuration:(int)allSecond{
+    
     
     NSDictionary* dict = [[self class] convertSecond2HourMinuteSecond:currentTime];
     NSString* strPlayedTime = [self getTimeString:dict prefix:@""];
@@ -380,6 +376,7 @@
 	 
 	didPrepared = YES;
     [player start];
+   
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player playbackComplete:(id)arg

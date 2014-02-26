@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
 @interface CommonUIViewController : UIViewController
 
  @property (strong, nonatomic)  NSMutableDictionary *  userEntity;
+ @property (strong, nonatomic)  MBProgressHUD * HUD;
 
 @end

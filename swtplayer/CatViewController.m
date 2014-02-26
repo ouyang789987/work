@@ -7,25 +7,12 @@
 //
 
 #import "CatViewController.h"
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @implementation CatViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -99,10 +86,48 @@ titleForHeaderInSection:(NSInteger)section {
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+
+
+- (IBAction)refreshdata:(id)sender {
+    
+    NSString * actionurl=[[CommonFn SiteUrl] stringByAppendingString:@"ajax.aspx?action=getvideojson&type=getalldataontime"];
+    NSURL  *url = [NSURL URLWithString:actionurl];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    [CommonFn ShowTextInfo:@"正在更新" OntheView:self];
+    
+}
+
+
+-(void)requestFinished:(ASIHTTPRequest *)request
+
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //  Use when fetching text data
+    
+    
+   
+    NSLog(@"code %d OK 222",[request responseStatusCode]);
+    //    Use when fetching binary data
+    //NSData   * responseData = [request responseData];
+    if([request responseStatusCode]==200)
+    {
+       NSString  *responseString = [request responseString];
+       NSString * fname=[CommonFn JsonFileName];
+       [CommonFn writeNSStringData:responseString writeFileName:fname];
+       [CommonFn ParseJsonData:responseString];
+    }
+    
+    [CommonFn ShowTextInfo:@"更新成功" OntheView:self];
+ 
+}
+
+
+
+-(void)requestFailed:(ASIHTTPRequest  *)request
+{
+    
+    [CommonFn ShowTextInfo:@"网络错误" OntheView:self];
 }
 
 @end

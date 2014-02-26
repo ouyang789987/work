@@ -51,11 +51,7 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+ 
 -(IBAction)onClickButton:(id)sender
 {
     NSLog(@"FirstViewController on click button");

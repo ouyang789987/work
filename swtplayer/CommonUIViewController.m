@@ -8,8 +8,31 @@
 
 #import "CommonUIViewController.h"
 
+
 @implementation CommonUIViewController
+ 
 
 @synthesize userEntity;
+@synthesize HUD;
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+-(BOOL) shouldAutorotate
+{
+    
+    return NO;
+}
+
+-(NSUInteger) supportedInterfaceOrientations
+{
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 @end

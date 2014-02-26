@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MBProgressHUD.h"
 
 @interface CommonFn : NSObject
 
@@ -52,4 +52,7 @@
 
 +(void) GoToShowView:(UIViewController *) curview WithIdentifier:(NSString *) showviewIdentifier ;
 +(void) ChangeOrientation;
++(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) view;
++(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) rootview SleepTime:(unsigned int)time;
+
 @end
