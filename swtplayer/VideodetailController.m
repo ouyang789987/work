@@ -70,6 +70,8 @@
 
 
 
+
+
 - (IBAction)GoToPlayVideo:(id)sender {
     
     //根据关系线跳转
@@ -96,6 +98,40 @@
     
     
 }
+
+
+- (IBAction)showEzine:(id)sender {
+    
+    NSMutableDictionary * dict=[[NSMutableDictionary alloc]init];    
+    
+    NSDictionary * curvideo= [[CommonFn AllvList] objectForKey:self.videoid];
+    [dict setObject:[curvideo objectForKey:@"ezineid"] forKey:@"ezineid"];
+   [CommonFn GoToShowView:self WithIdentifier:@"goshowezine" WithUserEntity:dict];
+        
+     
+}
+
+
+
+- (IBAction)showEzine2:(id)sender {
+    
+    NSMutableDictionary * dict=[[NSMutableDictionary alloc]init];    
+    
+    NSDictionary * curvideo= [[CommonFn AllvList] objectForKey:self.videoid];
+    NSString * ezinelist=[curvideo objectForKey:@"ezinelist"];
+    NSArray * ezineids= [ezinelist componentsSeparatedByString:@","];
+    NSString * ezineid=[curvideo objectForKey:@"ezineid"];
+    if([ezineids count]>0)
+    {
+        ezineids=ezineids[0];
+    }
+    [dict setObject:ezineid forKey:@"ezineid"];
+    
+   
+    [CommonFn GoToShowView:self WithIdentifier:@"goshowezine" WithUserEntity:dict];
+    
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender  
 {  

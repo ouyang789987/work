@@ -18,6 +18,7 @@ static NSMutableDictionary * _catlist;
 static NSMutableDictionary * _catvideolist;
 static NSMutableDictionary * _arealist;
 static NSMutableDictionary * _ezinelist;
+static NSInteger _ezineviewpanstatus;
 
 @implementation CommonFn
  
@@ -28,7 +29,8 @@ static NSMutableDictionary * _ezinelist;
     if(nil!=self){     
         //_jsonfilename=@"alljson.txt";
         //_siteurl=@"http://android.tvswt.com/"; 
-        NSLog(@" class init ");
+        //NSLog(@" class init ");
+        _ezineviewpanstatus=NO;
     }      
     return self;      
 }          
@@ -39,7 +41,8 @@ static NSMutableDictionary * _ezinelist;
     _catlist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _catvideolist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _arealist=[NSMutableDictionary dictionaryWithCapacity:0] ;
-    _ezinelist=[NSMutableDictionary dictionaryWithCapacity:0] ;    
+    _ezinelist=[NSMutableDictionary dictionaryWithCapacity:0] ;
+    _ezineviewpanstatus=NO;
 }
 
 +(NSMutableDictionary *)AllvList
@@ -377,6 +380,102 @@ static NSMutableDictionary * _ezinelist;
      [UIView setAnimationDuration:duration];
      [UIView commitAnimations];
      */
+}
+
+
++(void) addGestureRecognizerToView:(UIView *)view CanRotate:(BOOL) rotatestatus CanPinch:(BOOL) pinchstatu Canpan:(BOOL)panstatu Cantap:(BOOL) tapstatus
+{
+   
+    
+    if(rotatestatus)
+    {
+    // 旋转手势
+    UIRotationGestureRecognizer *rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotateView:)];
+    [view addGestureRecognizer:rotationGestureRecognizer];
+    }
+    if(pinchstatu)
+    {
+    // 缩放手势
+    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    [view addGestureRecognizer:pinchGestureRecognizer];
+    }
+    if(panstatu)
+    {
+        // 移动手势
+        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
+        panGestureRecognizer.enabled=NO;
+        [view addGestureRecognizer:panGestureRecognizer];
+        
+    }
+    if(tapstatus)
+    {
+    UITapGestureRecognizer * tapGestureRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleclickfordisableGesture:)];
+    tapGestureRecognizer.numberOfTapsRequired=2;
+    [view addGestureRecognizer:tapGestureRecognizer];
+    }
+
+}
+
++(void) addGestureRecognizerToView:(UIView *)view
+{
+    [self addGestureRecognizerToView:(UIView *)view CanRotate:YES CanPinch:YES Canpan:YES Cantap:YES];
+}
+
+
+// 处理旋转手势
++(void) rotateView:(UIRotationGestureRecognizer *)rotationGestureRecognizer
+{
+    UIView *view = rotationGestureRecognizer.view;
+    if (rotationGestureRecognizer.state == UIGestureRecognizerStateBegan || rotationGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        view.transform = CGAffineTransformRotate(view.transform, rotationGestureRecognizer.rotation);
+        [rotationGestureRecognizer setRotation:0];
+    }
+}
+
+// 处理缩放手势
++(void) pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
+{
+    UIView *view = pinchGestureRecognizer.view;
+    if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        
+        
+        view.transform = CGAffineTransformScale(view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
+        pinchGestureRecognizer.scale = 1;
+        
+        
+    }
+}
+
+// 处理拖拉手势
++(void) panView:(UIPanGestureRecognizer *)panGestureRecognizer
+{
+        UIView *view = panGestureRecognizer.view;
+        if (panGestureRecognizer.state == UIGestureRecognizerStateBegan || panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+            CGPoint translation = [panGestureRecognizer translationInView:view.superview];
+            [view setCenter:(CGPoint){view.center.x + translation.x, view.center.y + translation.y}];
+            [panGestureRecognizer setTranslation:CGPointZero inView:view.superview];
+        }
+    
+}
+
+
++(void)doubleclickfordisableGesture:(UITapGestureRecognizer * ) tapGestureRecognizer 
+{
+    UIView *view = tapGestureRecognizer.view;
+    NSArray * list= [view gestureRecognizers];
+    for (int i=0; i<[list count]; i++) {
+        if([list[i] isKindOfClass:[UIPanGestureRecognizer class]])
+        {
+            UIPanGestureRecognizer * tpan=list[i];             
+            [tpan setEnabled:!tpan.enabled];
+            break;
+        }
+    }
+}
+
++(BOOL) ezineviewpanstatus
+{
+    return _ezineviewpanstatus;
 }
 
 @end

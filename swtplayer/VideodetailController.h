@@ -17,7 +17,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *videotitle;
 
 @property (strong, nonatomic) IBOutlet UILabel *cattitle;
+- (IBAction)showEzine2:(id)sender;
 
 - (IBAction)GoToPlayVideo:(id)sender;
+- (IBAction)showEzine:(id)sender;
 
 @end

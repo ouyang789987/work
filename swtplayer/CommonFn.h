@@ -55,4 +55,17 @@
 +(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) view;
 +(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) rootview SleepTime:(unsigned int)time;
 
++(void) addGestureRecognizerToView:(UIView *)view CanRotate:(BOOL) rotatestatus CanPinch:(BOOL) pinchstatu Canpan:(BOOL)panstatu Cantap:(BOOL) tapstatus;
+
++(void) addGestureRecognizerToView:(UIView *)view;
+
++(void) rotateView:(UIRotationGestureRecognizer *)rotationGestureRecognizer;
+
++(void) pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer;
+
++(void) panView:(UIPanGestureRecognizer *)panGestureRecognizer;
+
++(void)doubleclickfordisableGesture:(UITapGestureRecognizer * ) tapGestureRecognizer;
++(BOOL) ezineviewpanstatus;
+
 @end
