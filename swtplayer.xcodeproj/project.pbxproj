@@ -22,7 +22,7 @@
 		4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01D18B762FB00C54EE7 /* libSBJSON.a */; };
 		4E9C1CE518BF10F600B65E06 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CCC18BF10F600B65E06 /* UIImage+Scale.m */; };
 		4E9C1CE618BF10F600B65E06 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CCF18BF10F600B65E06 /* EAGLView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4E9C1CE718BF10F600B65E06 /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CD118BF10F600B65E06 /* ES1Renderer.m */; settings = {COMPILER_FLAGS = "-fno-objc-are"; }; };
+		4E9C1CE718BF10F600B65E06 /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CD118BF10F600B65E06 /* ES1Renderer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E9C1CE818BF10F600B65E06 /* PSDrawings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CD518BF10F600B65E06 /* PSDrawings.m */; };
 		4E9C1CE918BF10F600B65E06 /* PSEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CD718BF10F600B65E06 /* PSEffects.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E9C1CEA18BF10F600B65E06 /* PSPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CDA18BF10F600B65E06 /* PSPage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -47,7 +47,7 @@
 		4EE16B3F18C6D43300D8AD65 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4EE16B3E18C6D43300D8AD65 /* book.pdf */; };
 		4EF511C618BDE3CB0065BF7F /* ShowEzineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF511C518BDE3CB0065BF7F /* ShowEzineViewController.m */; };
 		4EFE432818BEDEBD00D798E9 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE432718BEDEBD00D798E9 /* refresh.png */; };
-		4EFEFB8318B856C0009D8521 /* libASIHTTP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01718B762FB00C54EE7 /* libASIHTTP.a */; };
+		4EFEFB8318B856C0009D8521 /* libASIHTTP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01718B762FB00C54EE7 /* libASIHTTP.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		4EFEFB8418B856DC009D8521 /* libReachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01C18B762FB00C54EE7 /* libReachability.a */; };
 		4EFF548518B74F920091BA84 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548418B74F920091BA84 /* OpenAL.framework */; };
 		4EFF548718B74F9F0091BA84 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFF548618B74F9F0091BA84 /* OpenGLES.framework */; };
@@ -864,8 +864,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C7E712014B8170000A8F4ED /* Build configuration list for PBXNativeTarget "swtplayer" */;
 			buildPhases = (
-				2C7E710414B8170000A8F4ED /* Sources */,
 				2C7E710514B8170000A8F4ED /* Frameworks */,
+				2C7E710414B8170000A8F4ED /* Sources */,
 				2C7E710614B8170000A8F4ED /* Resources */,
 			);
 			buildRules = (
@@ -1138,6 +1138,8 @@
 		2C7E712114B8170000A8F4ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1151,7 +1153,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/swtplayer\\\"",
@@ -1168,6 +1170,7 @@
 				PRODUCT_NAME = "移动社文";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.1;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1179,6 +1182,8 @@
 		2C7E712214B8170000A8F4ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -1192,7 +1197,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/swtplayer\\\"",
@@ -1209,6 +1214,7 @@
 				PRODUCT_NAME = "移动社文";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.1;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
