@@ -55,6 +55,8 @@
 
 - (void)viewDidLoad
 {
+    self.navigationController.navigationBar.translucent=NO;
+   
     [super viewDidLoad];
     //areastr=[areastr stringByAppendingFormat:@"ouyang"];
     [[self navigationItem] setTitle:areastr]; 

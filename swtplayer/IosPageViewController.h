@@ -13,4 +13,7 @@
 @property (nonatomic,strong) NSMutableArray * ezinepagesurl;
 @property (nonatomic,strong) NSMutableArray * pagesview;
 
+- (IBAction)closeEzine:(id)sender;
+
+
 @end

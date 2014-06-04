@@ -11,54 +11,7 @@
 @implementation AreaListViewController
 @synthesize videotable;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    
-    NSMutableArray *array=[[NSMutableArray alloc]init];
-     NSLog(@"area list count %d",[[CommonFn CatList] count]);
-    for(NSString * vid in [CommonFn CatList])
-    {
-        NSDictionary * vcat=[[CommonFn CatList] objectForKey:vid];
-        NSRange foundObj=[[vcat objectForKey:@"title"] rangeOfString:@"直播" options:NSCaseInsensitiveSearch]; 
-        if(foundObj.length<1)
-        {
-            [array addObjectsFromArray:[[CommonFn CatVideoList]objectForKey:vid] ];
-        }
-    }
-    NSLog(@"area list count %d",[array count]);
-    self.videolist = array; 
-    self.videotable.delegate=self;
-    self.videotable.dataSource=self;  
-    
-}
 
 
 - (void)viewDidUnload
@@ -69,6 +22,64 @@
     // e.g. self.myOutlet = nil;
 }
 
+
+- (void)viewDidLoad
+{
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    
+    for(NSString * vid in [CommonFn AreaList])
+    {
+        [array addObjectsFromArray:[[CommonFn AreaVideoList]objectForKey:vid] ];
+    }
+    self.videolist = array;
+    self.sectionids=[[CommonFn AreaVideoList] allKeys];
+    self.sectionDict=[CommonFn AreaVideoList];
+    self.videotable.delegate=self;
+    self.videotable.dataSource=self;
+    
+}
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return [self.sectionids count];
+    
+}
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger num= 0;
+    num=[[self.sectionDict objectForKey:[self.sectionids objectAtIndex:section]] count];
+    if(num>4)
+    {
+        num=4;
+    }
+    return num;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView
+
+titleForHeaderInSection:(NSInteger)section {
+    
+    NSString *key = [self.sectionids objectAtIndex:section];
+    NSString * title= [[[CommonFn AreaList] objectForKey:key]objectForKey:@"title"];
+    return title;
+    
+}
+
+
+/*
+ - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
  
+ return [[CommonFn CatVideoList] allKeys];
+ 
+ }
+ */
+
+
+
+
 
 @end

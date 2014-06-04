@@ -21,6 +21,8 @@
 
 +(NSMutableDictionary *)CatList;
 
++(NSMutableDictionary *) AreaVideoList;
+
 +(NSMutableDictionary *)CatVideoList;
 
 +(NSMutableDictionary *) AreaList;
@@ -56,7 +58,7 @@
 +(void) ShowTextInfo:(NSString *) txt OntheView:(CommonUIViewController *) rootview SleepTime:(unsigned int)time;
 
 +(void) addGestureRecognizerToView:(UIView *)view CanRotate:(BOOL) rotatestatus CanPinch:(BOOL) pinchstatu Canpan:(BOOL)panstatu Cantap:(BOOL) tapstatus;
-
++(void) LongTapToView:(UILongPressGestureRecognizer *)rotationGestureRecognizer ;
 +(void) addGestureRecognizerToView:(UIView *)view;
 
 +(void) rotateView:(UIRotationGestureRecognizer *)rotationGestureRecognizer;

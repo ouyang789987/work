@@ -21,6 +21,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)viewDidLoad
+{
+    self.navigationController.navigationBar.translucent=NO;
+    self.navigationController.navigationBar.translucent=NO;
+    self.tabBarController.tabBar.translucent=NO;
+    self.edgesForExtendedLayout=UIRectEdgeNone;
+    [super viewDidLoad];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
 
 -(BOOL) shouldAutorotate
 {

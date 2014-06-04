@@ -16,6 +16,7 @@ static NSMutableDictionary * _videojson;
 static NSMutableDictionary * _allvList;
 static NSMutableDictionary * _catlist;
 static NSMutableDictionary * _catvideolist;
+static NSMutableDictionary * _areavideolist;
 static NSMutableDictionary * _arealist;
 static NSMutableDictionary * _ezinelist;
 static NSInteger _ezineviewpanstatus;
@@ -40,6 +41,7 @@ static NSInteger _ezineviewpanstatus;
     _allvList=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _catlist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _catvideolist=[NSMutableDictionary dictionaryWithCapacity:0] ;
+    _areavideolist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _arealist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _ezinelist=[NSMutableDictionary dictionaryWithCapacity:0] ;
     _ezineviewpanstatus=NO;
@@ -58,6 +60,11 @@ static NSInteger _ezineviewpanstatus;
 +(NSMutableDictionary *)CatVideoList
 {
     return _catvideolist;
+}
+
++(NSMutableDictionary *) AreaVideoList
+{
+    return _areavideolist;
 }
 
 +(NSMutableDictionary *) AreaList
@@ -232,19 +239,32 @@ static NSInteger _ezineviewpanstatus;
         //NSLog(@"%@",_catvideolist);
         NSDictionary * v=[allvalues objectAtIndex:i];
         NSString * catid=[v objectForKey:@"catid"];
-       // BOOL hascat= [[_catvideolist allKeys] containsObject:catid ];
-         NSMutableArray * marray= [_catvideolist objectForKey:catid];
+        NSString * areaid=[v objectForKey:@"videoarea"];
+        // BOOL hascat= [[_catvideolist allKeys] containsObject:catid ];
+        NSMutableArray * marray= [_catvideolist objectForKey:catid];
+        NSMutableArray * area_array= [_areavideolist objectForKey:areaid];
+        
         if (marray==NULL) {            
        
             marray = [[NSMutableArray alloc] init]; 
         }
-                  
-        [marray addObject:v];
         
+        if (area_array==NULL) {
+            
+            area_array = [[NSMutableArray alloc] init];
+        }
+        
+        
+        
+        [marray addObject:v];
+        [area_array addObject:v];
          
         [_catvideolist setObject:marray forKey:catid];
+        [_areavideolist setObject:area_array forKey:areaid];
         
     }
+    
+    
     
     /*
     NSEnumerator * nsenum =[_catvideolist objectEnumerator];
@@ -413,8 +433,27 @@ static NSInteger _ezineviewpanstatus;
     tapGestureRecognizer.numberOfTapsRequired=2;
     [view addGestureRecognizer:tapGestureRecognizer];
     }
-
+    
+    /*
+    UILongPressGestureRecognizer * longtap= [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(LongTapToView:)];
+    longtap.numberOfTouchesRequired=1;
+    longtap.minimumPressDuration=2;
+    [view addGestureRecognizer:longtap];
+     */
+    
 }
+
+
++(void) LongTapToView:(UILongPressGestureRecognizer *)rotationGestureRecognizer
+    {
+                UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        
+        //获取SecondViewController实例，参数是StoryBoard ID,选中View Controller,在Identity Inspector中
+        CommonUIViewController * playview=[mainStoryBoard instantiateViewControllerWithIdentifier:@"goshowezine"];
+        [playview dismissViewControllerAnimated:YES completion:nil];
+        
+  }
+
 
 +(void) addGestureRecognizerToView:(UIView *)view
 {

@@ -34,6 +34,7 @@
 		4E9C1CF318BF114B00B65E06 /* shadow_bb.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C1CF018BF114B00B65E06 /* shadow_bb.png */; };
 		4E9C1CF418BF114B00B65E06 /* shadow_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C1CF118BF114B00B65E06 /* shadow_m.png */; };
 		4E9C1CF518BF114B00B65E06 /* shadow_tb.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C1CF218BF114B00B65E06 /* shadow_tb.png */; };
+		4E9C48D6193F0AA0006DEE57 /* CommonTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C48D5193F0AA0006DEE57 /* CommonTabViewController.m */; };
 		4EBDB24718BC8B88009DCEFC /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24218BC8B88009DCEFC /* libopenssl.a */; };
 		4EBDB24B18BC9694009DCEFC /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24A18BC9694009DCEFC /* libbz2.dylib */; };
 		4EBDB24D18BC96B4009DCEFC /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24C18BC96B4009DCEFC /* libiconv.dylib */; };
@@ -224,6 +225,8 @@
 		4E9C1CF018BF114B00B65E06 /* shadow_bb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_bb.png; sourceTree = "<group>"; };
 		4E9C1CF118BF114B00B65E06 /* shadow_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_m.png; sourceTree = "<group>"; };
 		4E9C1CF218BF114B00B65E06 /* shadow_tb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_tb.png; sourceTree = "<group>"; };
+		4E9C48D4193F0AA0006DEE57 /* CommonTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabViewController.h; sourceTree = "<group>"; };
+		4E9C48D5193F0AA0006DEE57 /* CommonTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTabViewController.m; sourceTree = "<group>"; };
 		4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCyberPlayerController.a; sourceTree = "<group>"; };
 		4EBDB23918BC8B88009DCEFC /* VDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDefines.h; sourceTree = "<group>"; };
 		4EBDB23A18BC8B88009DCEFC /* Vitamio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vitamio.h; sourceTree = "<group>"; };
@@ -587,6 +590,8 @@
 				4EF511C518BDE3CB0065BF7F /* ShowEzineViewController.m */,
 				4E42132418C6DB2600390185 /* IosPageViewController.h */,
 				4E42132518C6DB2600390185 /* IosPageViewController.m */,
+				4E9C48D4193F0AA0006DEE57 /* CommonTabViewController.h */,
+				4E9C48D5193F0AA0006DEE57 /* CommonTabViewController.m */,
 			);
 			path = swtplayer;
 			sourceTree = "<group>";
@@ -1010,6 +1015,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7918F85188E2A77007E7762 /* FirstViewController.m in Sources */,
+				4E9C48D6193F0AA0006DEE57 /* CommonTabViewController.m in Sources */,
 				D7918F86188E2A77007E7762 /* LoginViewController.m in Sources */,
 				D7918F89188E2A77007E7762 /* swtplayerAppDelegate.m in Sources */,
 				D75082E0188E3276001932C3 /* main.m in Sources */,
@@ -1153,7 +1159,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/swtplayer\\\"",
@@ -1197,7 +1203,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/swtplayer\\\"",

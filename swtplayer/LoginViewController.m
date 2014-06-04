@@ -7,8 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
+
 #import "CommonFn.h"
 
 @implementation LoginViewController

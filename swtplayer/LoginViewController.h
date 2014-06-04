@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @interface LoginViewController : CommonUIViewController
 

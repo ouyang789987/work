@@ -39,18 +39,25 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     pagesview=[[NSMutableArray alloc]init];
+   
+   
+    
+    
     for (int i=0; i<[ezinepagesurl count]; i++) {
         
         UIViewController *mCtrl = [[UIViewController alloc] init];
         //mCtrl.view.backgroundColor = [UIColor blueColor];
-       
+        
         UIImageView * img=[[UIImageView alloc]init];
         [img setImageWithURL:[NSURL URLWithString:ezinepagesurl[i]]];
          mCtrl.view =img;    
         [mCtrl.view setTag:i];
-        [CommonFn addGestureRecognizerToView:mCtrl.view CanRotate:NO CanPinch:YES Canpan:YES Cantap:YES];
+        [CommonFn addGestureRecognizerToView:mCtrl.view CanRotate:NO CanPinch:YES Canpan:YES Cantap:YES] ;
+        UILongPressGestureRecognizer * longtap= [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(LongTapToView:)];
+        longtap.minimumPressDuration=2;
+        [mCtrl.view addGestureRecognizer:longtap];
         [mCtrl.view setUserInteractionEnabled:YES];
-        [mCtrl.view setMultipleTouchEnabled:YES];        
+        [mCtrl.view setMultipleTouchEnabled:YES];
         [pagesview addObject:mCtrl];
         
     }
@@ -64,6 +71,8 @@
     self.dataSource = self;
     
     [self setViewControllers:[NSArray arrayWithObject:pagesview[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+    
+    
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
@@ -118,4 +127,18 @@
 }
 
 
+- (IBAction)closeEzine:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+-(void) LongTapToView:(UILongPressGestureRecognizer *)longGestureRecognizer
+{
+    if(longGestureRecognizer.state==UIGestureRecognizerStateEnded)
+    {
+         //NSLog(@"EXIT VIEW oooo");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 @end
