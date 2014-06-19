@@ -26,8 +26,8 @@
 - (void)viewDidLoad
 {
     self.navigationController.navigationBar.translucent=NO;
-    self.tabBarController.tabBar.translucent=NO;
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+    //self.tabBarController.tabBar.translucent=NO;
+    //self.edgesForExtendedLayout=UIRectEdgeNone;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

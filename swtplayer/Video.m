@@ -70,7 +70,7 @@
 
 -(int)compareTo:(id)another
 {
-    
+    return 1;
 }
 
 @end
