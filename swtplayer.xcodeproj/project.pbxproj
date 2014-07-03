@@ -20,6 +20,8 @@
 		4E98B02118B762FB00C54EE7 /* libCyberPlayerUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01A18B762FB00C54EE7 /* libCyberPlayerUtils.a */; };
 		4E98B02218B762FB00C54EE7 /* libGzipCompressor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */; };
 		4E98B02418B762FB00C54EE7 /* libSBJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E98B01D18B762FB00C54EE7 /* libSBJSON.a */; };
+		4E9ADBDD1964F7E500DBB992 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9ADBDB1964F7E500DBB992 /* RegisterViewController.m */; };
+		4E9ADBDE1964F7E500DBB992 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9ADBDC1964F7E500DBB992 /* RegisterViewController.xib */; };
 		4E9C1CE518BF10F600B65E06 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CCC18BF10F600B65E06 /* UIImage+Scale.m */; };
 		4E9C1CE618BF10F600B65E06 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CCF18BF10F600B65E06 /* EAGLView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4E9C1CE718BF10F600B65E06 /* ES1Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C1CD118BF10F600B65E06 /* ES1Renderer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -35,6 +37,7 @@
 		4E9C1CF418BF114B00B65E06 /* shadow_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C1CF118BF114B00B65E06 /* shadow_m.png */; };
 		4E9C1CF518BF114B00B65E06 /* shadow_tb.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C1CF218BF114B00B65E06 /* shadow_tb.png */; };
 		4E9C48D6193F0AA0006DEE57 /* CommonTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C48D5193F0AA0006DEE57 /* CommonTabViewController.m */; };
+		4EAB13E4195297A40002CD1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB13E3195297A40002CD1F /* main.m */; };
 		4EBDB24718BC8B88009DCEFC /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24218BC8B88009DCEFC /* libopenssl.a */; };
 		4EBDB24B18BC9694009DCEFC /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24A18BC9694009DCEFC /* libbz2.dylib */; };
 		4EBDB24D18BC96B4009DCEFC /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBDB24C18BC96B4009DCEFC /* libiconv.dylib */; };
@@ -60,7 +63,6 @@
 		D74CB0071893B2CA00C21DEA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74CB0061893B2CA00C21DEA /* MapKit.framework */; };
 		D74CB00A1893BD1D00C21DEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74CB0091893BD1D00C21DEA /* CFNetwork.framework */; };
 		D75082DF188E3276001932C3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75082DD188E3276001932C3 /* LoginViewController.xib */; };
-		D75082E0188E3276001932C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D75082DE188E3276001932C3 /* main.m */; };
 		D75082E3188E4BDD001932C3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75082E2188E4BDD001932C3 /* MapViewController.m */; };
 		D75082E6188E4EBD001932C3 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75082E5188E4EBD001932C3 /* LiveViewController.m */; };
 		D75082E8188E5166001932C3 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75082E7188E5166001932C3 /* AreaViewController.m */; };
@@ -197,6 +199,9 @@
 		4E98B01B18B762FB00C54EE7 /* libGzipCompressor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGzipCompressor.a; sourceTree = "<group>"; };
 		4E98B01C18B762FB00C54EE7 /* libReachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libReachability.a; sourceTree = "<group>"; };
 		4E98B01D18B762FB00C54EE7 /* libSBJSON.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSBJSON.a; sourceTree = "<group>"; };
+		4E9ADBDA1964F7E500DBB992 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		4E9ADBDB1964F7E500DBB992 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		4E9ADBDC1964F7E500DBB992 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		4E9C1CCB18BF10F600B65E06 /* UIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scale.h"; sourceTree = "<group>"; };
 		4E9C1CCC18BF10F600B65E06 /* UIImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scale.m"; sourceTree = "<group>"; };
 		4E9C1CCE18BF10F600B65E06 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
@@ -227,6 +232,7 @@
 		4E9C1CF218BF114B00B65E06 /* shadow_tb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_tb.png; sourceTree = "<group>"; };
 		4E9C48D4193F0AA0006DEE57 /* CommonTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabViewController.h; sourceTree = "<group>"; };
 		4E9C48D5193F0AA0006DEE57 /* CommonTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTabViewController.m; sourceTree = "<group>"; };
+		4EAB13E3195297A40002CD1F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4EAB8AFA18B655AF00148DC7 /* libCyberPlayerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCyberPlayerController.a; sourceTree = "<group>"; };
 		4EBDB23918BC8B88009DCEFC /* VDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDefines.h; sourceTree = "<group>"; };
 		4EBDB23A18BC8B88009DCEFC /* Vitamio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vitamio.h; sourceTree = "<group>"; };
@@ -288,7 +294,6 @@
 		D74CB0371893BE8D00C21DEA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D74CB0381893BE8D00C21DEA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D75082DD188E3276001932C3 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		D75082DE188E3276001932C3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D75082E1188E4BDD001932C3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D75082E2188E4BDD001932C3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		D75082E4188E4EBD001932C3 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
@@ -533,6 +538,10 @@
 		2C7E711214B8170000A8F4ED /* swtplayer */ = {
 			isa = PBXGroup;
 			children = (
+				4E9ADBDA1964F7E500DBB992 /* RegisterViewController.h */,
+				4E9ADBDB1964F7E500DBB992 /* RegisterViewController.m */,
+				4E9ADBDC1964F7E500DBB992 /* RegisterViewController.xib */,
+				4EAB13E3195297A40002CD1F /* main.m */,
 				4E9C1CC918BF10F600B65E06 /* PaperStack */,
 				4EBDB23518BC8B88009DCEFC /* Vitamio */,
 				4E98B01518B762FB00C54EE7 /* vlib */,
@@ -552,7 +561,6 @@
 				D7918F7D188E2A77007E7762 /* LoginViewController.h */,
 				D7918F7E188E2A77007E7762 /* LoginViewController.m */,
 				D75082DD188E3276001932C3 /* LoginViewController.xib */,
-				D75082DE188E3276001932C3 /* main.m */,
 				D7918F7F188E2A77007E7762 /* AreaViewController.h */,
 				D75082E1188E4BDD001932C3 /* MapViewController.h */,
 				D75082E2188E4BDD001932C3 /* MapViewController.m */,
@@ -938,6 +946,7 @@
 				D7508347188E5513001932C3 /* guizhou.png in Resources */,
 				D7508348188E5513001932C3 /* hainan.html in Resources */,
 				D7508349188E5513001932C3 /* hainan.png in Resources */,
+				4E9ADBDE1964F7E500DBB992 /* RegisterViewController.xib in Resources */,
 				D750834A188E5513001932C3 /* hebei.html in Resources */,
 				D750834B188E5513001932C3 /* hebei.png in Resources */,
 				D750834C188E5513001932C3 /* heilongjian.html in Resources */,
@@ -1018,9 +1027,10 @@
 				4E9C48D6193F0AA0006DEE57 /* CommonTabViewController.m in Sources */,
 				D7918F86188E2A77007E7762 /* LoginViewController.m in Sources */,
 				D7918F89188E2A77007E7762 /* swtplayerAppDelegate.m in Sources */,
-				D75082E0188E3276001932C3 /* main.m in Sources */,
 				D75082E3188E4BDD001932C3 /* MapViewController.m in Sources */,
+				4EAB13E4195297A40002CD1F /* main.m in Sources */,
 				D75082E6188E4EBD001932C3 /* LiveViewController.m in Sources */,
+				4E9ADBDD1964F7E500DBB992 /* RegisterViewController.m in Sources */,
 				D75082E8188E5166001932C3 /* AreaViewController.m in Sources */,
 				D750833C188E5513001932C3 /* common.js in Sources */,
 				D745E1F318911C49005DFC78 /* AreaListViewController.m in Sources */,
@@ -1159,7 +1169,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/swtplayer\\\"",
@@ -1203,7 +1213,7 @@
 				GCC_PREFIX_HEADER = "swtplayer/swtplayer-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "swtplayer/swtplayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/swtplayer\\\"",

@@ -11,10 +11,12 @@
 
 #import "CommonFn.h"
 
-@implementation LoginViewController
+@implementation RegisterViewController
 @synthesize emailtxt;
 @synthesize passwordtxt;
+@synthesize repassword;
 @synthesize actiontype;
+
 @synthesize errormsg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,20 +41,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    emailtxt.delegate=self;
+    passwordtxt.delegate=self;
+    repassword.delegate=self;
     // Do any additional setup after loading the view from its nib.
-    
-    
 }
 
 
 -(void) viewDidAppear:(BOOL)animated
 {
     
+    /*
+     
     if([CommonFn CheckJsonFile])
     {
         [CommonFn ParseJsonData];
         [CommonFn GoHome:self];      
     }
+    
+    */
     
 }
 
@@ -82,42 +89,14 @@
     [request startAsynchronous];    
 }
 
--(void)LoginUser
 
+-(void)LoginUser
 {
     
-    //[CommonFn ParseJsonData];
-    //[CommonFn GoHome:self];
     
-    BOOL emailnil=[emailtxt.text isEqualToString:@""];
-    BOOL passwordnil=[passwordtxt.text isEqualToString:@""];
-    if(emailnil || passwordnil)
-    {
-        errormsg.text=@"用户名或密码不能为空";
-        return;
-    }
-    else
-    {
-        errormsg.text=@"";
-    }
+    LoginViewController *loginViewController=[[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     
-    NSString * actionurl=[[CommonFn SiteUrl] stringByAppendingString:@"ajax.aspx"];
-    
-    NSURL  *url = [NSURL URLWithString:actionurl];
-    
-    ASIFormDataRequest * request=[ASIFormDataRequest requestWithURL:url];
-    NSString * tempemail = [emailtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString * temppassword = [passwordtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    [request setTag:1];
-    //[self.actiontype setValue:[request requestID] forKey:@"login"];
-    [request setPostValue:@"login" forKey:@"action"];    
-    [request setPostValue:tempemail forKey:@"email"];
-    [request setPostValue:temppassword forKey:@"password"]; 
-    [request setDelegate:self];    
-    [request startAsynchronous];
-    
-   
-    
+    self.view.window.rootViewController=loginViewController;
     
     
 }
@@ -139,7 +118,7 @@
         {
             if([responseString isEqualToString:@"1"])
             {
-                errormsg.text=@"登陆成功"; 
+                errormsg.text=@"注册成功";
                 if(![CommonFn CheckJsonFile])
                 {
                    [self GetJsonData];
@@ -149,12 +128,13 @@
                    [CommonFn ParseJsonData];
                    [CommonFn GoHome:self];
                 }
+                 NSLog(@"register ok");
             }
             else
             {
-                errormsg.text=@"用户名或密码不正确";
+                errormsg.text=@"邮箱已经被注册";
             }
-            NSLog(@"login ok");
+           
         }
             break;
             
@@ -162,6 +142,8 @@
      
         {        
              NSString * fname=[CommonFn JsonFileName];
+            //NSLog(@"jsondata_");
+            //NSLog(responseString);
             [CommonFn writeNSStringData:responseString writeFileName:fname];
             [CommonFn ParseJsonData:responseString];            
             [CommonFn GoHome:self];
@@ -199,11 +181,58 @@
 
 - (IBAction)onRegisterBtClick:(id)sender {
     
-    RegisterViewController *registerViewController=[[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
     
-    self.view.window.rootViewController=registerViewController;
+    //[CommonFn ParseJsonData];
+    //[CommonFn GoHome:self];
+    
+    BOOL emailnil=[emailtxt.text isEqualToString:@""];
+    BOOL passwordnil=[passwordtxt.text isEqualToString:@""];
+    
+    if(emailnil || passwordnil )
+    {
+        errormsg.text=@"用户名或密码不能为空";
+        return;
+    }
+    else
+    {
+        NSString * ismacth=passwordtxt.text;
+        
+        if(![ismacth isEqualToString:repassword.text])
+        {
+            errormsg.text=@"密码不一致";
+            return;
+        }
+        else
+        {
+            errormsg.text=@"";
+        }
+    }
+    
+    NSString * actionurl=[[CommonFn SiteUrl] stringByAppendingString:@"ajax.aspx"];
+    
+    NSURL  *url = [NSURL URLWithString:actionurl];
+    
+    ASIFormDataRequest * request=[ASIFormDataRequest requestWithURL:url];
+    NSString * tempemail = [emailtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString * temppassword = [passwordtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [request setTag:1];
+    //[self.actiontype setValue:[request requestID] forKey:@"login"];
+    [request setPostValue:@"registeruser" forKey:@"action"];
+    [request setPostValue:tempemail forKey:@"email"];
+    [request setPostValue:temppassword forKey:@"password"];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    
+    
 }
 
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [repassword resignFirstResponder];
+    [emailtxt resignFirstResponder];
+    [passwordtxt resignFirstResponder];
+}
 
 -(void)dealloc
 {
